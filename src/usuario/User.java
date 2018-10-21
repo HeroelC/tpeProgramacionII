@@ -7,13 +7,14 @@ import pelicula.Pelicula;
 
 public abstract class User {
 
+	//ATRIBUTOS
 	protected String nombre;
 	protected ArrayList<Calificacion> calificaciones;
 	
 	public User(String nombre) {
 	
 		this.nombre = nombre;
-		this.calificaciones = new ArrayList<>();
+		this.calificaciones = new ArrayList<>(); //Inicializamos el array de calificaciones
 	}
 	
 	public String getNombre() {
@@ -24,10 +25,12 @@ public abstract class User {
 		this.nombre = nombre;
 	}
 	
+	//METODOS ABSTRACTOS
 	public abstract ArrayList<Pelicula> listarPeliculasVistas();
 	
 	public abstract ArrayList<String> darGenero();
 	
+	//METODOS
 	public void darCalificacion(Pelicula p, int calificacion) {
 		
 		//Si la pelicula no esta calificada, se puede dar calificacion ¿redefinir equals de calificaciones?
