@@ -59,7 +59,6 @@ public class GrupoDeUsuarios extends User {
 	}
 	
 	//METODOS
-	
 	public void addUser(User u) {
 		usuarios.add(u);
 	}
