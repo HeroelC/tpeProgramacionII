@@ -13,16 +13,19 @@ public abstract class User {
 	protected String nombre;
 	protected HashSet<Calificacion> calificaciones;
 	
+	//CONSTRUCTORES
 	public User(String nombre) {
 	
 		this.nombre = nombre;
 		this.calificaciones = new HashSet<>(); //Inicializamos el array de calificaciones
 	}
 	
+	//GETTERS
 	public String getNombre() {
 		return nombre;
 	}
 
+	//SETTERS
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}

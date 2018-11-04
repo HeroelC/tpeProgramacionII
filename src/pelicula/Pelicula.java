@@ -7,7 +7,7 @@ import usuario.User;
 
 public class Pelicula {
 	
-	//Atributos
+	//ATRIBUTOS
 	private String titulo;
 	private String sinopsis;
 	private ArrayList<String> actores; 
@@ -17,6 +17,7 @@ public class Pelicula {
 	private int anioEstreno;
 	private ArrayList<Calificacion> calificaciones;
 	
+	//CONSTRUCTORES
 	public Pelicula(String titulo, String sinopsis) {
 		this.titulo = titulo;
 		this.sinopsis = sinopsis;

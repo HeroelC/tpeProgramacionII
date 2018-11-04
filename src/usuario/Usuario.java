@@ -13,7 +13,7 @@ public class Usuario extends User{
 	private int edad;
 	private HashSet<String> generosPreferidos;
 	
-	//CONSTRUCTOR
+	//CONSTRUCTORES
 	public Usuario(String nombre, int edad) {
 	
 		super(nombre);
@@ -36,6 +36,7 @@ public class Usuario extends User{
 		generosPreferidos.add(genero);
 	}
 	
+	//REDEFINICION DE METODOS ABSTRACTOS
 	public Iterator<String> darGenero(){
 		
 		HashSet<String> copiaGenero = new HashSet<String>(generosPreferidos);
