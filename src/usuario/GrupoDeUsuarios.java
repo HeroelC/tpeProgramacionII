@@ -1,37 +1,60 @@
 package usuario;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 
-public class GrupoDeUsuarios extends User{
+import calificaciones.Calificacion;
+import pelicula.Pelicula;
+import java.util.HashSet;
 
-	ArrayList<User> usuarios;
+public class GrupoDeUsuarios extends User {
+
 	
+	HashSet<User> usuarios;
+
 	//CONSTRUCTOR
 	public GrupoDeUsuarios(String nombre) {
-		
+
 		super(nombre);
-		this.usuarios = new ArrayList<>(); //Inicializamos el ArrayList de usuarios
+		this.usuarios = new HashSet<>(); // Inicializamos el ArrayList de usuarios
 	}
-	
-	//METODOS
-	public ArrayList<String> darGenero(){
+
+	//METODOS ABSTRACTS
+	public Iterator<String> darGenero() {
 		
-		ArrayList<String> generos = new ArrayList<>(); //Arreglo adicional para retornar
+		HashSet<String> salidaGeneros = new HashSet<String>();
+		Iterator<User> itUsuarios = usuarios.iterator();
 		
-		for(int i=0; i<usuarios.size(); i++) {
+		while(itUsuarios.hasNext()) {
 			
-			ArrayList<String> copiaGeneros = usuarios.get(i).darGenero(); //Pedimos los generos
+			Iterator<String> itGeneros = itUsuarios.next().darGenero(); 
 			
-			//Recorremos el ArrayList de generos
-			for(int j=0; j<copiaGeneros.size(); i++) {
+			while(itGeneros.hasNext()) {
 				
-				//Si el ArrayList que vamos a devoler no contiene el genero lo agregamos
-				if(!generos.contains(copiaGeneros.get(j))) {
-					generos.add(copiaGeneros.get(j));
-				}
+				salidaGeneros.add(itGeneros.next());
 			}
 		}
 		
-		return generos;
+		return salidaGeneros.iterator();
+	}
+
+	public Iterator<Pelicula> listarPeliculasVistas() {
+
+		HashSet<Pelicula> salidaPeliculas = new HashSet<>();
+
+		Iterator<User> itUsuarios = usuarios.iterator();
+		
+		while(itUsuarios.hasNext()) {
+			
+			Iterator<Pelicula> itPeliculas = itUsuarios.next().listarPeliculasVistas(); 
+			
+			while(itPeliculas.hasNext()) {
+				
+				salidaPeliculas.add(itPeliculas.next());
+			}
+		}
+		
+		return salidaPeliculas.iterator();
 	}
 }

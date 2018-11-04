@@ -3,6 +3,7 @@ package pelicula;
 import java.util.ArrayList;
 
 import calificaciones.Calificacion;
+import usuario.User;
 
 public class Pelicula {
 	
@@ -46,4 +47,9 @@ public class Pelicula {
 		this.anioEstreno = anioEstreno;
 	}
 	
+	//METODOS
+	//Le pasamos la calificacion a una pelicula de un usuario
+	public void addCalificacion(User u, int calificacion) {
+		
+	}
 }

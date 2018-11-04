@@ -1,6 +1,8 @@
 package usuario;
 
-import java.util.ArrayList;
+
+import java.util.HashSet;
+import java.util.Iterator;
 
 import calificaciones.Calificacion;
 import pelicula.Pelicula;
@@ -9,12 +11,12 @@ public abstract class User {
 
 	//ATRIBUTOS
 	protected String nombre;
-	protected ArrayList<Calificacion> calificaciones;
+	protected HashSet<Calificacion> calificaciones;
 	
 	public User(String nombre) {
 	
 		this.nombre = nombre;
-		this.calificaciones = new ArrayList<>(); //Inicializamos el array de calificaciones
+		this.calificaciones = new HashSet<>(); //Inicializamos el array de calificaciones
 	}
 	
 	public String getNombre() {
@@ -26,11 +28,12 @@ public abstract class User {
 	}
 	
 	//METODOS ABSTRACTOS
-	public abstract ArrayList<Pelicula> listarPeliculasVistas();
+	public abstract Iterator<Pelicula> listarPeliculasVistas();
 	
-	public abstract ArrayList<String> darGenero();
+	public abstract Iterator<String> darGenero();
 	
 	//METODOS
+	//Deberia incluir en la pelicula la calificacion
 	public void darCalificacion(Pelicula p, int calificacion) {
 		
 		//Si la pelicula no esta calificada, se puede dar calificacion ¿redefinir equals de calificaciones?
@@ -39,6 +42,8 @@ public abstract class User {
 			Calificacion c = new Calificacion(this, p, calificacion);
 			calificaciones.add(c);
 		}
+		
+		
 	}
 	
 	

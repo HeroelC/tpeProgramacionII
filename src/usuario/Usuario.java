@@ -1,6 +1,8 @@
 package usuario;
 
-import java.util.ArrayList;
+
+import java.util.HashSet;
+import java.util.Iterator;
 
 import calificaciones.Calificacion;
 import pelicula.Pelicula;
@@ -9,14 +11,14 @@ public class Usuario extends User{
 
 	//ATRIBUTOS
 	private int edad;
-	private ArrayList<String> generosPreferidos;
+	private HashSet<String> generosPreferidos;
 	
 	//CONSTRUCTOR
 	public Usuario(String nombre, int edad) {
 	
 		super(nombre);
 		this.edad = edad;
-		this.generosPreferidos = new ArrayList<>();
+		this.generosPreferidos = new HashSet<>();
 	}
 	
 	//GETTERS
@@ -34,24 +36,24 @@ public class Usuario extends User{
 		generosPreferidos.add(genero);
 	}
 	
-	public ArrayList<String> darGenero(){
+	public Iterator<String> darGenero(){
 		
-		ArrayList<String> copiaGenero = new ArrayList<String>(generosPreferidos);
+		HashSet<String> copiaGenero = new HashSet<String>(generosPreferidos);
 		
-		return copiaGenero;
+		return copiaGenero.iterator();
 	}
 	
-	public ArrayList<Pelicula> listarPeliculasVistas(){
+	public Iterator<Pelicula> listarPeliculasVistas(){
 		
-	 ArrayList<Pelicula> listaPeliculas = new ArrayList<>();	
+		HashSet<Pelicula> listaPeliculas = new HashSet<>();	
+		Iterator<Calificacion> it = calificaciones.iterator();
 		
-	 for(int i=0; i < calificaciones.size(); i++) {
+		while(it.hasNext()) {
+			Calificacion c = it.next();
+			listaPeliculas.add(c.getPelicula());
+		}
 		
-		 listaPeliculas.add(calificaciones.get(i).getPelicula());
-	 }
-	 
-	return listaPeliculas;	
-		
+	return listaPeliculas.iterator();	
 	}
 	
 	

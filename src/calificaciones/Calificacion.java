@@ -21,7 +21,7 @@ public class Calificacion {
 	}
 
 	public Pelicula getPelicula() {
-		return pelicula;
+		return this.pelicula;
 	}
 
 	public int getCalificacion() {
