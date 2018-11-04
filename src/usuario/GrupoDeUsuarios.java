@@ -10,7 +10,7 @@ import java.util.HashSet;
 
 public class GrupoDeUsuarios extends User {
 
-	
+	//ATRIBUTOS
 	HashSet<User> usuarios;
 
 	//CONSTRUCTOR
@@ -56,5 +56,11 @@ public class GrupoDeUsuarios extends User {
 		}
 		
 		return salidaPeliculas.iterator();
+	}
+	
+	//METODOS
+	
+	public void addUser(User u) {
+		usuarios.add(u);
 	}
 }

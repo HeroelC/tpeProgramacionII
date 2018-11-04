@@ -56,6 +56,6 @@ public class Usuario extends User{
 		
 	return listaPeliculas.iterator();	
 	}
-	
+
 	
 }

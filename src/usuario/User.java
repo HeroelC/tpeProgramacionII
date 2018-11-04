@@ -22,7 +22,7 @@ public abstract class User {
 	
 	//GETTERS
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
 
 	//SETTERS
@@ -45,11 +45,17 @@ public abstract class User {
 			Calificacion c = new Calificacion(this, p, calificacion);
 			calificaciones.add(c);
 		}
-		
-		
 	}
 	
-	
+	//METODOS PROPIOS DE LOS OBJETOS EQUALS Y TOSTRING
+	public boolean equals(User u) {
+		
+		if(this.getNombre().equals(u.getNombre())) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 	
 	
 	

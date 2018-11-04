@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import usuario.Usuario;
 
@@ -13,12 +14,11 @@ public class main {
 		lisa.addGeneroPreferido("Infantil");
 		lisa.addGeneroPreferido("Aventura");
 		
-		ArrayList<String> listaGenero = lisa.darGenero();
+		Iterator<String> listaGeneros = lisa.darGenero();
 		
-		for(int i=0; i < listaGenero.size(); i++) {
+		while(listaGeneros.hasNext()) {
 			
-			System.out.println(listaGenero.get(i));
-			
+			System.out.println(listaGeneros.next());
 		}
 	}
 
