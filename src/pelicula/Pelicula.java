@@ -52,5 +52,7 @@ public class Pelicula {
 	//Le pasamos la calificacion a una pelicula de un usuario
 	public void addCalificacion(User u, int calificacion) {
 		
+		Calificacion c = new Calificacion(u, this, calificacion);
+		calificaciones.add(c);
 	}
 }

@@ -5,10 +5,12 @@ import usuario.User;
 
 public class Calificacion {
 
+	//ATRIBUTOS
 	private User usuario;
 	private Pelicula pelicula;
 	private int calificacion;
 
+	//CONSTRUCTOR
 	public Calificacion(User usuario, Pelicula pelicula, int calificacion) {
 		
 		this.usuario = usuario;
@@ -28,5 +30,6 @@ public class Calificacion {
 		return calificacion;
 	}
 	
+	//METODOS
 	
 }

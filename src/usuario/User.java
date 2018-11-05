@@ -36,16 +36,14 @@ public abstract class User {
 	public abstract Iterator<String> darGenero();
 	
 	//METODOS
-	//Deberia incluir en la pelicula la calificacion
 	public void darCalificacion(Pelicula p, int calificacion) {
 		
-		//Si la pelicula no esta calificada, se puede dar calificacion ¿redefinir equals de calificaciones?
-		if(!calificaciones.contains(p)) {
-			
+			//Creamos la calificacion y se la agregamos al HashSet del usuario
 			Calificacion c = new Calificacion(this, p, calificacion);
 			calificaciones.add(c);
+			//Le pasamos la calificacion a la pelicula también
+			p.addCalificacion(this, calificacion);
 		}
-	}
 	
 	//METODOS PROPIOS DE LOS OBJETOS EQUALS Y TOSTRING
 	public boolean equals(User u) {
