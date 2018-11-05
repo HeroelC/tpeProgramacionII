@@ -32,4 +32,6 @@ public class Calificacion {
 	
 	//METODOS
 	
+	//IMPLEMENTAR ECUALS CON .GETUSUARIO
+	
 }

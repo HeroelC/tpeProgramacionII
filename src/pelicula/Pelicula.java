@@ -1,7 +1,6 @@
 package pelicula;
 
-import java.util.ArrayList;
-
+import java.util.HashSet;
 import calificaciones.Calificacion;
 import usuario.User;
 
@@ -10,19 +9,28 @@ public class Pelicula {
 	//ATRIBUTOS
 	private String titulo;
 	private String sinopsis;
-	private ArrayList<String> actores; 
-	private ArrayList<String> directores;
+	private HashSet<String> actores; 
+	private HashSet<String> directores;
 	private double duracion; 
-	private ArrayList<String> generos; 
+	private HashSet<String> generos; 
 	private int anioEstreno;
-	private ArrayList<Calificacion> calificaciones;
+	private HashSet<Calificacion> calificaciones;
 	
 	//CONSTRUCTORES
-	public Pelicula(String titulo, String sinopsis) {
+	public Pelicula(String titulo, String sinopsis, double duracion, int anioEstreno) {
 		this.titulo = titulo;
 		this.sinopsis = sinopsis;
+		this.duracion = duracion;
+		this.anioEstreno = anioEstreno;
+		
+		//INICIALIZAR COLECCIONES
+		this.actores = new HashSet<>();
+		this.directores = new HashSet<>();
+		this.generos = new HashSet<>();
+		this.calificaciones = new HashSet<>();
 	}
 	
+	//GETTERS and SETTERS
 	public String getTitulo() {
 		return titulo;
 	}
@@ -54,5 +62,20 @@ public class Pelicula {
 		
 		Calificacion c = new Calificacion(u, this, calificacion);
 		calificaciones.add(c);
+	}
+	
+	public void addGenero(String genero) {
+		
+		generos.add(genero);
+	}
+	
+	public void addDirector(String director) {
+		
+		directores.add(director);
+	}
+	
+	public void addActor(String actor) {
+		
+		actores.add(actor);
 	}
 }

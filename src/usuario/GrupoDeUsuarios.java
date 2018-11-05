@@ -2,10 +2,7 @@ package usuario;
 
 import java.util.HashSet;
 import java.util.Iterator;
-
-import calificaciones.Calificacion;
 import pelicula.Pelicula;
-import java.util.HashSet;
 
 public class GrupoDeUsuarios extends User {
 
