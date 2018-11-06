@@ -18,12 +18,17 @@ public class Calificacion {
 		this.calificacion = calificacion;
 	}
 
-	public String getUsuario() {
+	//GETTERS
+	public String getNombreUsuario() {
 		return usuario.getNombre();
 	}
 
 	public Pelicula getPelicula() {
 		return this.pelicula;
+	}
+	
+	public String getTituloPelicula() {
+		return pelicula.getTitulo();
 	}
 
 	public int getCalificacion() {
@@ -32,6 +37,10 @@ public class Calificacion {
 	
 	//METODOS
 	
-	//IMPLEMENTAR ECUALS CON .GETUSUARIO
+	//METODOS PROPIOS DE CLASE OBJECT 
+	public boolean equals(Calificacion c) {
+		
+		return (this.getNombreUsuario().equals(c.getNombreUsuario()) && (this.getTituloPelicula().equals(c.getTituloPelicula())));
+	}
 	
 }
