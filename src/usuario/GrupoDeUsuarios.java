@@ -6,32 +6,32 @@ import pelicula.Pelicula;
 
 public class GrupoDeUsuarios extends User {
 
-	//ATRIBUTOS
+	// ATRIBUTOS
 	HashSet<User> usuarios;
 
-	//CONSTRUCTOR
+	// CONSTRUCTOR
 	public GrupoDeUsuarios(String nombre) {
 
 		super(nombre);
 		this.usuarios = new HashSet<>(); // Inicializamos el ArrayList de usuarios
 	}
 
-	//METODOS ABSTRACTS
+	// METODOS ABSTRACTS
 	public Iterator<String> darGenero() {
-		
+
 		HashSet<String> salidaGeneros = new HashSet<String>();
 		Iterator<User> itUsuarios = usuarios.iterator();
-		
-		while(itUsuarios.hasNext()) {
-			
-			Iterator<String> itGeneros = itUsuarios.next().darGenero(); 
-			
-			while(itGeneros.hasNext()) {
-				
+
+		while (itUsuarios.hasNext()) {
+
+			Iterator<String> itGeneros = itUsuarios.next().darGenero();
+
+			while (itGeneros.hasNext()) {
+
 				salidaGeneros.add(itGeneros.next());
 			}
 		}
-		
+
 		return salidaGeneros.iterator();
 	}
 
@@ -40,21 +40,48 @@ public class GrupoDeUsuarios extends User {
 		HashSet<Pelicula> salidaPeliculas = new HashSet<>();
 
 		Iterator<User> itUsuarios = usuarios.iterator();
-		
-		while(itUsuarios.hasNext()) {
-			
-			Iterator<Pelicula> itPeliculas = itUsuarios.next().listarPeliculasVistas(); 
-			
-			while(itPeliculas.hasNext()) {
-				
+
+		while (itUsuarios.hasNext()) {
+
+			Iterator<Pelicula> itPeliculas = itUsuarios.next().listarPeliculasVistas();
+
+			while (itPeliculas.hasNext()) {
+
 				salidaPeliculas.add(itPeliculas.next());
 			}
 		}
-		
+
 		return salidaPeliculas.iterator();
 	}
+
+	public boolean recomendarPelicula(Pelicula p) {
+		return (contieneGenero(p) && vioPelicula(p));
+	}
 	
-	//METODOS
+	public boolean contieneGenero(Pelicula p) {
+		Iterator<String> it = darGenero();
+
+		while (it.hasNext()) {
+			if (!p.contieneGenero(it.next())) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+	
+	public boolean vioPelicula(Pelicula p) {
+		Iterator<Pelicula> itPelicula = listarPeliculasVistas();
+		while (itPelicula.hasNext()) {
+			if (itPelicula.next().equals(p)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	// METODOS
 	public void addUser(User u) {
 		usuarios.add(u);
 	}

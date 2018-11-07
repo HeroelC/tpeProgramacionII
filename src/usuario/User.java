@@ -35,6 +35,12 @@ public abstract class User {
 	
 	public abstract Iterator<String> darGenero();
 	
+	public abstract boolean recomendarPelicula(Pelicula p);
+	
+	public abstract boolean vioPelicula(Pelicula p);
+	
+	public abstract boolean contieneGenero(Pelicula p);
+	
 	//METODOS
 	public void darCalificacion(Pelicula p, int calificacion) {
 		

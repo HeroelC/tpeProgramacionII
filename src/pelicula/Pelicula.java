@@ -1,6 +1,8 @@
 package pelicula;
 
 import java.util.HashSet;
+import java.util.Iterator;
+
 import calificaciones.Calificacion;
 
 public class Pelicula {
@@ -83,9 +85,29 @@ public class Pelicula {
 
 		actores.add(actor);
 	}
+	
+	public int cantidadCalificaciones() {
+		return calificaciones.size();
+	}
+	
+	public double promedioDeVotos() {
+		Iterator<Calificacion> it = calificaciones.iterator();
+		double promedio = 0;
+		while(it.hasNext()) {
+			Calificacion c = it.next();
+			promedio += c.getCalificacion();
+		}
+		
+	return (promedio/this.cantidadCalificaciones());	
+	}
+	
 	//Metodos de clase Object
 	
 	public boolean equals(Pelicula p) {
 		return (this.getTitulo().equals(p.getTitulo()));
+	}
+	
+	public boolean contieneGenero(String g) {
+		return generos.contains(g);
 	}
 }

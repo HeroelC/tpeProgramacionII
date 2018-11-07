@@ -1,5 +1,6 @@
 import java.util.Iterator;
 
+import gestor.GestorDePeliculas;
 import pelicula.Pelicula;
 import usuario.GrupoDeUsuarios;
 import usuario.Usuario;
@@ -43,8 +44,9 @@ public class main {
 		
 		Usuario homero = new Usuario("Homero", 31);
 		homero.addGeneroPreferido("Musical");
-		homero.addGeneroPreferido("Acción");
+		homero.addGeneroPreferido("Accion");
 		homero.addGeneroPreferido("Infantil");
+		
 		
 		//GRUPO DE USUARIOS
 		GrupoDeUsuarios hombresSimpson = new GrupoDeUsuarios("Simpson");
@@ -144,7 +146,7 @@ public class main {
 		
 		lisa.darCalificacion(p3, 5);
 		bart.darCalificacion(p3, 2);
-		homero.darCalificacion(p3, 4);
+		//homero.darCalificacion(p3, 4);
 		marge.darCalificacion(p3, 2);
 		
 		marge.darCalificacion(p4, 5);
@@ -158,6 +160,19 @@ public class main {
 			
 			System.out.println(itPelicula.next().getTitulo());
 		}
+		
+		GestorDePeliculas cine = new GestorDePeliculas();
+		
+		cine.agregarPelicula(p3);
+		
+		System.out.println("*********************CANTIDAD DE VOTOS***********");
+		System.out.println(cine.cantidadDeVotos(p3));
+		
+		System.out.println("*********************PROMEDIO DE VOTOS***********");
+		System.out.println(cine.puntajePromedio(p3));
+		
+		System.out.println("*******RECOMENDAR********");
+		System.out.println(homero.recomendarPelicula(p3));
 		
 	}
 
