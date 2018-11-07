@@ -42,17 +42,12 @@ public abstract class User {
 			Calificacion c = new Calificacion(this, p, calificacion);
 			calificaciones.add(c);
 			//Le pasamos la calificacion a la pelicula también
-			p.addCalificacion(this, calificacion);
+			p.addCalificacion(c);
 		}
 	
 	//METODOS PROPIOS DE LOS OBJETOS EQUALS Y TOSTRING
 	public boolean equals(User u) {
-		
-		if(this.getNombre().equals(u.getNombre())) {
-			return true;
-		}else {
-			return false;
-		}
+		return (this.getNombre().equals(u.getNombre()));
 	}
 	
 	

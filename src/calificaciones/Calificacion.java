@@ -27,6 +27,10 @@ public class Calificacion {
 		return this.pelicula;
 	}
 	
+	public User getUsuario() {
+		return this.usuario;
+	}
+	
 	public String getTituloPelicula() {
 		return pelicula.getTitulo();
 	}
@@ -40,7 +44,7 @@ public class Calificacion {
 	//METODOS PROPIOS DE CLASE OBJECT 
 	public boolean equals(Calificacion c) {
 		
-		return (this.getNombreUsuario().equals(c.getNombreUsuario()) && (this.getTituloPelicula().equals(c.getTituloPelicula())));
+		return (this.getUsuario().equals(c.getUsuario()) && (this.getPelicula().equals(c.getPelicula())));
 	}
 	
 }
