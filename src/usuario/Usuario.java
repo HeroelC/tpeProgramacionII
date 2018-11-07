@@ -60,7 +60,7 @@ public class Usuario extends User {
 		return (contieneGenero(p) && (!vioPelicula(p)));
 	}
 	
-	public boolean contieneGenero(Pelicula p) {
+	public boolean contieneGeneros(Pelicula p) {
 		Iterator<String> it = generosPreferidos.iterator();
 
 		while (it.hasNext()) {
@@ -70,6 +70,22 @@ public class Usuario extends User {
 		}
 
 		return true;
+	}
+	
+	public boolean recomendarPeliculaConUnSoloGenero(Pelicula p) {
+		return (contieneGenero(p) && vioPelicula(p));
+	}
+	
+	public boolean contieneGenero(Pelicula p) {
+		Iterator<String> it = generosPreferidos.iterator();
+
+		while (it.hasNext()) {
+			if (p.contieneGenero(it.next())) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	public boolean vioPelicula(Pelicula p) {

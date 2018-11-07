@@ -39,7 +39,11 @@ public abstract class User {
 	
 	public abstract boolean vioPelicula(Pelicula p);
 	
+	public abstract boolean contieneGeneros(Pelicula p);
+	
 	public abstract boolean contieneGenero(Pelicula p);
+	
+	public abstract boolean recomendarPeliculaConUnSoloGenero(Pelicula p);
 	
 	//METODOS
 	public void darCalificacion(Pelicula p, int calificacion) {
@@ -55,6 +59,7 @@ public abstract class User {
 	public boolean equals(User u) {
 		return (this.getNombre().equals(u.getNombre()));
 	}
+	
 	
 	
 	

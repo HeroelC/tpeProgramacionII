@@ -31,7 +31,7 @@ public class GestorDePeliculas {
 	public double puntajePromedio(Pelicula p) {
 		return p.promedioDeVotos();
 	}
-
+	//traer metodos de recomendar
 	public HashSet<Pelicula> recomendarPeliculaUsuario(User u) {
 		HashSet<Pelicula> peliculasRecomendadas = new HashSet<>();
 		Iterator<Pelicula> it = peliculas.iterator();

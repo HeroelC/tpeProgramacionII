@@ -101,6 +101,10 @@ public class Pelicula {
 	return (promedio/this.cantidadCalificaciones());	
 	}
 	
+	public boolean contieneActor(String actor) {
+		return actores.contains(actor);
+	}
+	
 	//Metodos de clase Object
 	
 	public boolean equals(Pelicula p) {

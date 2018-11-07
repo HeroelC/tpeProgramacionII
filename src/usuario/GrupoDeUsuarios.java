@@ -11,7 +11,6 @@ public class GrupoDeUsuarios extends User {
 
 	// CONSTRUCTOR
 	public GrupoDeUsuarios(String nombre) {
-
 		super(nombre);
 		this.usuarios = new HashSet<>(); // Inicializamos el ArrayList de usuarios
 	}
@@ -58,7 +57,7 @@ public class GrupoDeUsuarios extends User {
 		return (contieneGenero(p) && vioPelicula(p));
 	}
 	
-	public boolean contieneGenero(Pelicula p) {
+	public boolean contieneGeneros(Pelicula p) {
 		Iterator<String> it = darGenero();
 
 		while (it.hasNext()) {
@@ -66,8 +65,23 @@ public class GrupoDeUsuarios extends User {
 				return false;
 			}
 		}
-
 		return true;
+	}
+	
+	public boolean contieneGenero(Pelicula p) {
+		Iterator<String> it = darGenero();
+
+		while (it.hasNext()) {
+			if (p.contieneGenero(it.next())) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+	
+	public boolean recomendarPeliculaConUnSoloGenero(Pelicula p) {
+		return (contieneGenero(p) && vioPelicula(p));
 	}
 	
 	public boolean vioPelicula(Pelicula p) {
@@ -77,7 +91,6 @@ public class GrupoDeUsuarios extends User {
 				return true;
 			}
 		}
-
 		return false;
 	}
 
