@@ -33,6 +33,7 @@ public class GestorDePeliculas {
 	}
 	//traer metodos de recomendar
 	public HashSet<Pelicula> recomendarPeliculaUsuario(User u) {
+		
 		HashSet<Pelicula> peliculasRecomendadas = new HashSet<>();
 		Iterator<Pelicula> it = peliculas.iterator();
 

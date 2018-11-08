@@ -16,7 +16,6 @@ public class GrupoDeUsuarios extends User {
 	}
 
 	// METODOS ABSTRACTS
-	
 	public void darCalificacion(Pelicula p, int calificacion) {
 		
 	}
