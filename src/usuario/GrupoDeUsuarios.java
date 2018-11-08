@@ -16,6 +16,11 @@ public class GrupoDeUsuarios extends User {
 	}
 
 	// METODOS ABSTRACTS
+	
+	public void darCalificacion(Pelicula p, int calificacion) {
+		
+	}
+	
 	public Iterator<String> darGenero() {
 
 		HashSet<String> salidaGeneros = new HashSet<String>();
@@ -52,10 +57,6 @@ public class GrupoDeUsuarios extends User {
 
 		return salidaPeliculas.iterator();
 	}
-
-	public boolean recomendarPelicula(Pelicula p) {
-		return (contieneGenero(p) && vioPelicula(p));
-	}
 	
 	public boolean contieneGeneros(Pelicula p) {
 		Iterator<String> it = darGenero();
@@ -78,10 +79,6 @@ public class GrupoDeUsuarios extends User {
 		}
 
 		return false;
-	}
-	
-	public boolean recomendarPeliculaConUnSoloGenero(Pelicula p) {
-		return (contieneGenero(p) && vioPelicula(p));
 	}
 	
 	public boolean vioPelicula(Pelicula p) {

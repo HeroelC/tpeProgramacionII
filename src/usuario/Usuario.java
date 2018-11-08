@@ -34,8 +34,19 @@ public class Usuario extends User {
 	public void addGeneroPreferido(String genero) {
 		generosPreferidos.add(genero);
 	}
+	
+	public void addPeliculaVista(Pelicula p) {
+		peliculasVistas.add(p);
+	}
 
 	// REDEFINICION DE METODOS ABSTRACTOS
+	public void darCalificacion(Pelicula p, int calificacion) {
+			
+		Calificacion c = new Calificacion(this, p, calificacion);
+		p.addCalificacion(c);
+		addPeliculaVista(p);
+	}
+	
 	public Iterator<String> darGenero() {
 
 		HashSet<String> copiaGenero = new HashSet<String>(generosPreferidos);
@@ -46,11 +57,11 @@ public class Usuario extends User {
 	public Iterator<Pelicula> listarPeliculasVistas() {
 
 		HashSet<Pelicula> listaPeliculas = new HashSet<>();
-		Iterator<Calificacion> it = calificaciones.iterator();
+		Iterator<Pelicula> it = peliculasVistas.iterator();
 
 		while (it.hasNext()) {
-			Calificacion c = it.next();
-			listaPeliculas.add(c.getPelicula());
+			Pelicula p = it.next();
+			listaPeliculas.add(p);
 		}
 
 		return listaPeliculas.iterator();
@@ -70,10 +81,6 @@ public class Usuario extends User {
 		}
 
 		return true;
-	}
-	
-	public boolean recomendarPeliculaConUnSoloGenero(Pelicula p) {
-		return (contieneGenero(p) && vioPelicula(p));
 	}
 	
 	public boolean contieneGenero(Pelicula p) {
