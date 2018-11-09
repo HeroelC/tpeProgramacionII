@@ -5,6 +5,8 @@ import condiciones.CondicionAnio;
 import condiciones.CondicionTodosGeneros;
 import condiciones.CondicionUnGenero;
 import gestor.GestorDePeliculas;
+import ordenamiento.Comparadores;
+import ordenamiento.OrdenarPorPromedio;
 import pelicula.Pelicula;
 import usuario.GrupoDeUsuarios;
 import usuario.Usuario;
@@ -157,10 +159,11 @@ public class main {
 		cine.agregarUsuario(hombresSimpson);
 		
 		Condicion c = new CondicionTodosGeneros(hombresSimpson.darGenero());
+		Comparadores comp = new OrdenarPorPromedio();
 		
-		Iterator <Pelicula> itPeliculaHomero = cine.buscarPeliculas(c);
+		Iterator <Pelicula> itPeliculaHomero = cine.recomendarPeliculas(hombresSimpson, c, comp, 4);
 		
-		System.out.println("******PELICULAS VISTAS CINE********");
+		System.out.println("******PELICULAS RECOMENDADAS********");
 		while(itPeliculaHomero.hasNext()) {
 			
 			System.out.println(itPeliculaHomero.next().getTitulo());
