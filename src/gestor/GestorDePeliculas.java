@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 
+import condiciones.Condicion;
 import ordenamiento.OrdenarPorPromedio;
 import ordenamiento.OrdenarPorVotos;
 import pelicula.Pelicula;
@@ -41,15 +42,41 @@ public class GestorDePeliculas {
 		return p.promedioDeVotos();
 	}
 	
-	//traer metodos de recomendar
-	public HashSet<Pelicula> recomendarPeliculaUsuario(User u) {
+	//Falta el limite de peliculas, con el atributo cantidad
+	public Iterator<Pelicula> recomendarPeliculas(User u, Condicion c, int cantidad) {
 		
-		HashSet<Pelicula> peliculasRecomendadas = new HashSet<>();
+		ArrayList<Pelicula> peliculasRecomendadas = new ArrayList<>();
 		
-		Iterator<Pelicula> it = peliculas.iterator();
-
-		return peliculasRecomendadas;
+		Iterator<Pelicula> itPeliculas = peliculas.iterator();
+		
+		while(itPeliculas.hasNext()) {
+			
+			if(c.cumple(itPeliculas.next())) {
+				
+				peliculasRecomendadas.add(itPeliculas.next());
+			}
+		}
+		
+		return peliculasRecomendadas.iterator();
 	}
+	
+	public Iterator<Pelicula> recomendarPeliculas(User u, Condicion c){
+	
+		ArrayList<Pelicula> peliculasRecomendadas = new ArrayList<>();
+		
+		Iterator<Pelicula> itPeliculas = peliculas.iterator();
+		
+		while(itPeliculas.hasNext()) {
+			
+			if(c.cumple(itPeliculas.next())) {
+				
+				peliculasRecomendadas.add(itPeliculas.next());
+			}
+		}
+		
+		return peliculasRecomendadas.iterator();
+	}
+	
 	
 	public Iterator<Pelicula> listarPeliculasVistas(User u){
 		

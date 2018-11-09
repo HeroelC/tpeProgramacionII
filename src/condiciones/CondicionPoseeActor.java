@@ -8,6 +8,7 @@ public class CondicionPoseeActor extends Condicion {
 	}
 	
 	public boolean cumple(Pelicula p) {
+		
 		return p.contieneActor(actor);
 	}
 }
