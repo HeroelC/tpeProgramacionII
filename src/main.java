@@ -160,8 +160,7 @@ public class main {
 		
 		cine.agregarUsuario(hombresSimpson);
 		
-		Condicion c = new CondicionAnio(2015);
-		
+		Condicion c = new CondicionAnio(1956);
 		
 		Iterator <Pelicula> itPeliculaHomero = cine.recomendarPeliculas(hombresSimpson, c);
 		

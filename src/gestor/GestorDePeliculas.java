@@ -94,9 +94,7 @@ public class GestorDePeliculas {
 			
 			peliculasVistas.add(peliculas.next());
 		}
-		
-		Collections.sort(peliculasVistas, new OrdenarPorPromedio());
-		
+
 		return peliculasVistas.iterator();
 	}
 	

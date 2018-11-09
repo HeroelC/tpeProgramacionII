@@ -9,7 +9,6 @@ public class CondicionAnio extends Condicion{
 	}
 	
 	public boolean cumple(Pelicula p) {
-		
 		return p.getAnioEstreno() >= anio;
 	}
 	
