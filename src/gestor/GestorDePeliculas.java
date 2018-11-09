@@ -5,10 +5,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 
-import condiciones.Condicion;
-import ordenamiento.Comparadores;
-import ordenamiento.OrdenarPorPromedio;
-import ordenamiento.OrdenarPorVotos;
+import condiciones.*;
+import ordenamiento.*;
 import pelicula.Pelicula;
 import usuario.User;
 
@@ -56,6 +54,8 @@ public class GestorDePeliculas {
 				peliculasRecomendadas.add(itPeliculas.next());
 			}
 		}
+		
+		Collections.sort(peliculasRecomendadas, ordenamiento);
 		
 		return peliculasRecomendadas.iterator();
 	}

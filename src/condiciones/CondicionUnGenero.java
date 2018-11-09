@@ -5,10 +5,10 @@ import java.util.Iterator;
 
 import pelicula.Pelicula;
 
-public class CondicionGenero extends Condicion {
+public class CondicionUnGenero extends Condicion {
 	private HashSet<String> generos;
 
-	public CondicionGenero() {
+	public CondicionUnGenero() {
 		generos = new HashSet<>();
 	}
 
