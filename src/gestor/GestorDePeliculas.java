@@ -45,15 +45,15 @@ public class GestorDePeliculas {
 	public Iterator<Pelicula> recomendarPeliculas(User u, Condicion c, Comparadores ordenamiento, int cantidad) {
 
 		ArrayList<Pelicula> peliculasRecomendadas = new ArrayList<>();
-		
+
 		Iterator<Pelicula> itPeliculas = peliculas.iterator();
 
 		Pelicula p;
-		
+
 		while (itPeliculas.hasNext()) {
-			
+
 			p = itPeliculas.next();
-			
+
 			if (c.cumple(p)) {
 
 				peliculasRecomendadas.add(p);
@@ -61,14 +61,14 @@ public class GestorDePeliculas {
 		}
 
 		Collections.sort(peliculasRecomendadas, ordenamiento);
-		
-		for(int i=0; i < peliculasRecomendadas.size(); i++) {
-			
-			if(i >= cantidad) {
-				peliculasRecomendadas.remove(i);
-			}
+
+		int i = peliculasRecomendadas.size() - 1;
+
+		while (i >= cantidad) {
+			i--;
+			peliculasRecomendadas.remove(i);
 		}
-		
+
 		return peliculasRecomendadas.iterator();
 	}
 

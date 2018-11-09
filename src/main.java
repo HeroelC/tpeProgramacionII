@@ -161,7 +161,7 @@ public class main {
 		Condicion c = new CondicionTodosGeneros(hombresSimpson.darGenero());
 		Comparadores comp = new OrdenarPorPromedio();
 		
-		Iterator <Pelicula> itPeliculaHomero = cine.recomendarPeliculas(hombresSimpson, c, comp, 4);
+		Iterator <Pelicula> itPeliculaHomero = cine.recomendarPeliculas(hombresSimpson, c, comp, 5);
 		
 		System.out.println("******PELICULAS RECOMENDADAS********");
 		while(itPeliculaHomero.hasNext()) {
