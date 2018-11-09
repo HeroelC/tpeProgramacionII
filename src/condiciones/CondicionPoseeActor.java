@@ -1,6 +1,6 @@
 package condiciones;
 import pelicula.Pelicula;
-public class CondicionPoseeActor extends Condicion {
+public class CondicionPoseeActor implements Condicion {
 	private String actor;
 	
 	public CondicionPoseeActor(String actor) {

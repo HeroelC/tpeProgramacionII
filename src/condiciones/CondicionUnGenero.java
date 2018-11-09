@@ -5,21 +5,22 @@ import java.util.Iterator;
 
 import pelicula.Pelicula;
 
-public class CondicionUnGenero extends Condicion {
-	private HashSet<String> generos;
+public class CondicionUnGenero implements Condicion {
+	private Iterator<String> generos;
 
-	public CondicionUnGenero() {
-		generos = new HashSet<>();
+	public CondicionUnGenero(Iterator<String> generos) {
+		this.generos = generos;
 	}
 
 	public boolean cumple(Pelicula p) {
-		Iterator<String> it = generos.iterator();
 		
-		while (it.hasNext()) {
-			if(!p.contieneGenero(it.next())) {
-				return false;
+		Iterator<String> itGeneros = generos;
+		
+		while (itGeneros.hasNext()) {
+			if(p.contieneGenero(itGeneros.next())) {
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 }

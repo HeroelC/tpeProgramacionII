@@ -1,7 +1,7 @@
 package condiciones;
 import pelicula.Pelicula;
 
-public class CondicionAnio extends Condicion{
+public class CondicionAnio implements Condicion{
 	private int anio;
 	
 	public CondicionAnio(int anio) {

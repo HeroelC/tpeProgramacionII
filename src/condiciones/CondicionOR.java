@@ -1,6 +1,6 @@
 package condiciones;
 import pelicula.Pelicula;
-public class CondicionOR extends Condicion{
+public class CondicionOR implements Condicion{
 	
 	private Condicion c1;
 	private Condicion c2;
