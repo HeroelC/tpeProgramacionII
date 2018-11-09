@@ -1,8 +1,13 @@
 package gestor;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 
+import ordenamiento.OrdenarPorPromedio;
+import ordenamiento.OrdenarPorVotos;
 import pelicula.Pelicula;
 import usuario.User;
 
@@ -40,9 +45,26 @@ public class GestorDePeliculas {
 	public HashSet<Pelicula> recomendarPeliculaUsuario(User u) {
 		
 		HashSet<Pelicula> peliculasRecomendadas = new HashSet<>();
+		
 		Iterator<Pelicula> it = peliculas.iterator();
 
 		return peliculasRecomendadas;
+	}
+	
+	public Iterator<Pelicula> listarPeliculasVistas(User u){
+		
+		ArrayList<Pelicula> peliculasVistas = new ArrayList<>();
+		
+		Iterator<Pelicula> peliculas = u.listarPeliculasVistas();
+		
+		while(peliculas.hasNext()) {
+			
+			peliculasVistas.add(peliculas.next());
+		}
+		
+		Collections.sort(peliculasVistas, new OrdenarPorPromedio());
+		
+		return peliculasVistas.iterator();
 	}
 
 }

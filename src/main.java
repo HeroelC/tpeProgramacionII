@@ -54,13 +54,6 @@ public class main {
 		hombresSimpson.addUser(bart);
 		hombresSimpson.addUser(lisa);
 		
-		listaGeneros = hombresSimpson.darGenero();
-		
-		System.out.println("**********GRUPO**********");
-		while(listaGeneros.hasNext()) {
-			
-			System.out.println(listaGeneros.next());
-		}
 		Pelicula p1 = new Pelicula("Up : una aventura en la altura","Carl Fredricksen es un vendedor de globos de 78 años de edad dispuesto a cumplir su sueño: "
 				+ "atar miles de globos a su casa y volar a Sudamérica. Sin embargo, descubre demasiado tarde a un joven e inesperado polizón."
 				+ " Lo que en principio será recelo, acabará por tornarse simpatía hacia el muchacho mientras juntos pasan fascinantes aventuras en exóticos lugares.",1.4,2009);
@@ -143,9 +136,6 @@ public class main {
 		p6.addGenero("Aventura");
 		p6.addGenero("Accion");
 		
-		
-		lisa.darCalificacion(p3, 5);
-		bart.darCalificacion(p3, 2);
 		//homero.darCalificacion(p3, 4);
 		marge.darCalificacion(p3, 2);
 		
@@ -153,38 +143,22 @@ public class main {
 		
 		maggie.darCalificacion(p5, 1);
 		
-		Iterator <Pelicula> itPelicula = hombresSimpson.listarPeliculasVistas();
-		
-		System.out.println("******PELICULAS MARGE********");
-		while(itPelicula.hasNext()) {
-			
-			System.out.println(itPelicula.next().getTitulo());
-		}
 		
 		GestorDePeliculas cine = new GestorDePeliculas();
 		
 		cine.agregarPelicula(p3);
 		
-		System.out.println("*********************CANTIDAD DE VOTOS***********");
-		System.out.println(cine.cantidadDeVotos(p3));
 		
-		System.out.println("*********************PROMEDIO DE VOTOS***********");
-		System.out.println(cine.puntajePromedio(p3));
-		
-		hombresSimpson.darCalificacion(p5, 5);
+		hombresSimpson.darCalificacion(p5, 1);
 		hombresSimpson.darCalificacion(p6, 3);
+		hombresSimpson.darCalificacion(p3, 5);
 		
-		Iterator <Pelicula> itPeliculaGrupo = hombresSimpson.listarPeliculasVistas();
+		cine.agregarUsuario(hombresSimpson);
 		
-		System.out.println("******PELICULAS GRUPO********");
-		while(itPeliculaGrupo.hasNext()) {
-			
-			System.out.println(itPeliculaGrupo.next().getTitulo());
-		}
 		
-		Iterator <Pelicula> itPeliculaHomero = bart.listarPeliculasVistas();
+		Iterator <Pelicula> itPeliculaHomero = cine.listarPeliculasVistas(hombresSimpson);
 		
-		System.out.println("******PELICULAS HOMERO********");
+		System.out.println("******PELICULAS VISTAS CINE********");
 		while(itPeliculaHomero.hasNext()) {
 			
 			System.out.println(itPeliculaHomero.next().getTitulo());
