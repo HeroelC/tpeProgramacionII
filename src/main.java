@@ -49,7 +49,6 @@ public class main {
 		homero.addGeneroPreferido("Accion");
 		homero.addGeneroPreferido("Infantil");
 		
-		
 		//GRUPO DE USUARIOS
 		GrupoDeUsuarios hombresSimpson = new GrupoDeUsuarios("Simpson");
 		
@@ -145,7 +144,6 @@ public class main {
 		
 		maggie.darCalificacion(p5, 1);
 		
-		
 		GestorDePeliculas cine = new GestorDePeliculas();
 		cine.agregarPelicula(p1);
 		cine.agregarPelicula(p2);
@@ -160,9 +158,9 @@ public class main {
 		
 		cine.agregarUsuario(hombresSimpson);
 		
-		Condicion c = new CondicionAnio(1956);
+		Condicion c = new CondicionAnio(1700);
 		
-		Iterator <Pelicula> itPeliculaHomero = cine.recomendarPeliculas(hombresSimpson, c);
+		Iterator <Pelicula> itPeliculaHomero = cine.buscarPeliculas(c);
 		
 		System.out.println("******PELICULAS VISTAS CINE********");
 		while(itPeliculaHomero.hasNext()) {
