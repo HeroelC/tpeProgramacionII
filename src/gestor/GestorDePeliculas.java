@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 import condiciones.Condicion;
+import ordenamiento.Comparadores;
 import ordenamiento.OrdenarPorPromedio;
 import ordenamiento.OrdenarPorVotos;
 import pelicula.Pelicula;
@@ -42,7 +43,7 @@ public class GestorDePeliculas {
 	}
 	
 	//Falta el limite de peliculas, con el atributo cantidad
-	public Iterator<Pelicula> recomendarPeliculas(User u, Condicion c, int cantidad) {
+	public Iterator<Pelicula> recomendarPeliculas(User u, Condicion c, Comparadores ordenamiento,int cantidad) {
 		
 		ArrayList<Pelicula> peliculasRecomendadas = new ArrayList<>();
 		
@@ -59,6 +60,7 @@ public class GestorDePeliculas {
 		return peliculasRecomendadas.iterator();
 	}
 	
+	//PROBAR FUNCION, NO TESTING
 	public Iterator<Pelicula> recomendarPeliculas(User u, Condicion c){
 	
 		ArrayList<Pelicula> peliculasRecomendadas = new ArrayList<>();
@@ -77,6 +79,7 @@ public class GestorDePeliculas {
 	}
 	
 	
+	//LISTAR PELICULAS VISTAS, NO ME ACUERDO SI LO TESTIE, SACAAR EL SORT, NO VA ACA
 	public Iterator<Pelicula> listarPeliculasVistas(User u){
 		
 		ArrayList<Pelicula> peliculasVistas = new ArrayList<>();
@@ -93,6 +96,7 @@ public class GestorDePeliculas {
 		return peliculasVistas.iterator();
 	}
 	
+	//PROBAR FILTRO, HAY QUE TERMINAR LAS CONDICIONES
 	public Iterator<Pelicula> buscarPeliculas(Condicion c){
 		
 		ArrayList<Pelicula> filtroPeliculas = new ArrayList<>();
