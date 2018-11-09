@@ -12,11 +12,13 @@ public class GestorDePeliculas {
 	private HashSet<Pelicula> peliculas;
 	private HashSet<User> usuarios;
 
+	//CONSTRUCTOR
 	public GestorDePeliculas() {
 		peliculas = new HashSet<>();
 		usuarios = new HashSet<>();
 	}
 
+	//METODOS
 	public void agregarPelicula(Pelicula p) {
 		peliculas.add(p);
 	}
@@ -33,6 +35,7 @@ public class GestorDePeliculas {
 	public double puntajePromedio(Pelicula p) {
 		return p.promedioDeVotos();
 	}
+	
 	//traer metodos de recomendar
 	public HashSet<Pelicula> recomendarPeliculaUsuario(User u) {
 		
