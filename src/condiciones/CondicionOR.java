@@ -13,6 +13,7 @@ public class CondicionOR extends Condicion{
 	
 	public boolean cumple(Pelicula p) {
 		
+		
 		return c1.cumple(p) || c2.cumple(p);
 	}
 }

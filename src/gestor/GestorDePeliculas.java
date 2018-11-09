@@ -67,11 +67,15 @@ public class GestorDePeliculas {
 		
 		Iterator<Pelicula> itPeliculas = peliculas.iterator();
 		
+		Pelicula p;
+		
 		while(itPeliculas.hasNext()) {
 			
-			if(c.cumple(itPeliculas.next())) {
+			p = itPeliculas.next();
+			
+			if(c.cumple(p)){
 				
-				peliculasRecomendadas.add(itPeliculas.next());
+				peliculasRecomendadas.add(p);
 			}
 		}
 		

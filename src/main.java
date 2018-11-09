@@ -1,5 +1,7 @@
 import java.util.Iterator;
 
+import condiciones.Condicion;
+import condiciones.CondicionAnio;
 import gestor.GestorDePeliculas;
 import pelicula.Pelicula;
 import usuario.GrupoDeUsuarios;
@@ -145,9 +147,12 @@ public class main {
 		
 		
 		GestorDePeliculas cine = new GestorDePeliculas();
-		
+		cine.agregarPelicula(p1);
+		cine.agregarPelicula(p2);
 		cine.agregarPelicula(p3);
-		
+		cine.agregarPelicula(p4);
+		cine.agregarPelicula(p5);
+		cine.agregarPelicula(p6);
 		
 		hombresSimpson.darCalificacion(p5, 1);
 		hombresSimpson.darCalificacion(p6, 3);
@@ -155,8 +160,10 @@ public class main {
 		
 		cine.agregarUsuario(hombresSimpson);
 		
+		Condicion c = new CondicionAnio(2015);
 		
-		Iterator <Pelicula> itPeliculaHomero = cine.listarPeliculasVistas(hombresSimpson);
+		
+		Iterator <Pelicula> itPeliculaHomero = cine.recomendarPeliculas(hombresSimpson, c);
 		
 		System.out.println("******PELICULAS VISTAS CINE********");
 		while(itPeliculaHomero.hasNext()) {
