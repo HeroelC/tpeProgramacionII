@@ -171,8 +171,24 @@ public class main {
 		System.out.println("*********************PROMEDIO DE VOTOS***********");
 		System.out.println(cine.puntajePromedio(p3));
 		
-		System.out.println("*******RECOMENDAR********");
-		System.out.println(homero.recomendarPelicula(p3));
+		hombresSimpson.darCalificacion(p5, 5);
+		hombresSimpson.darCalificacion(p6, 3);
+		
+		Iterator <Pelicula> itPeliculaGrupo = hombresSimpson.listarPeliculasVistas();
+		
+		System.out.println("******PELICULAS GRUPO********");
+		while(itPeliculaGrupo.hasNext()) {
+			
+			System.out.println(itPeliculaGrupo.next().getTitulo());
+		}
+		
+		Iterator <Pelicula> itPeliculaHomero = bart.listarPeliculasVistas();
+		
+		System.out.println("******PELICULAS HOMERO********");
+		while(itPeliculaHomero.hasNext()) {
+			
+			System.out.println(itPeliculaHomero.next().getTitulo());
+		}
 		
 	}
 

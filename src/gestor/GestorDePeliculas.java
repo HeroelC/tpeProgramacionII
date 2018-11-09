@@ -7,6 +7,8 @@ import pelicula.Pelicula;
 import usuario.User;
 
 public class GestorDePeliculas {
+	
+	//ATRIBUTOS
 	private HashSet<Pelicula> peliculas;
 	private HashSet<User> usuarios;
 
@@ -37,11 +39,6 @@ public class GestorDePeliculas {
 		HashSet<Pelicula> peliculasRecomendadas = new HashSet<>();
 		Iterator<Pelicula> it = peliculas.iterator();
 
-		while (it.hasNext()) {
-			if (u.recomendarPelicula(it.next())) {
-				peliculasRecomendadas.add(it.next());
-			}
-		}
 		return peliculasRecomendadas;
 	}
 

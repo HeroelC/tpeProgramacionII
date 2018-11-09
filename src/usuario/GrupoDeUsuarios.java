@@ -2,6 +2,8 @@ package usuario;
 
 import java.util.HashSet;
 import java.util.Iterator;
+
+import calificaciones.Calificacion;
 import pelicula.Pelicula;
 
 public class GrupoDeUsuarios extends User {
@@ -18,6 +20,25 @@ public class GrupoDeUsuarios extends User {
 	// METODOS ABSTRACTS
 	public void darCalificacion(Pelicula p, int calificacion) {
 		
+		Calificacion c = new Calificacion(this, p, calificacion);
+		p.addCalificacion(c);
+		
+		Iterator<User> itUser = usuarios.iterator();
+		
+		while(itUser.hasNext()) {
+			
+			itUser.next().addPeliculaVista(p);
+		}
+	}
+	
+	public void addPeliculaVista(Pelicula p) {
+		
+		Iterator<User> itUser = usuarios.iterator();
+		
+		while(itUser.hasNext()) {
+			
+			itUser.next().addPeliculaVista(p);
+		}
 	}
 	
 	public Iterator<String> darGenero() {

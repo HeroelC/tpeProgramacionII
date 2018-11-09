@@ -40,6 +40,9 @@ public abstract class User {
 	public abstract boolean contieneGenero(Pelicula p);
 	
 	public abstract void darCalificacion(Pelicula p, int calificacion);
+	
+	public abstract void addPeliculaVista(Pelicula p);
+	
 	//METODOS
 	
 		
