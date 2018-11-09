@@ -1,7 +1,6 @@
 package gestor;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -104,7 +103,7 @@ public class GestorDePeliculas {
 			
 			if(c.cumple(itPeliculas.next())) {
 				
-				
+				filtroPeliculas.add(itPeliculas.next());
 			}
 		}
 		
