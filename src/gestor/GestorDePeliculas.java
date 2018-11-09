@@ -40,7 +40,7 @@ public class GestorDePeliculas {
 		return p.promedioDeVotos();
 	}
 	
-	//Falta el limite de peliculas, con el atributo cantidad
+	//Falta el limite de peliculas, con el atributo cantidad, VER SI LA PELI ESTA VISTA O NO
 	public Iterator<Pelicula> recomendarPeliculas(User u, Condicion c, Comparadores ordenamiento,int cantidad) {
 		
 		ArrayList<Pelicula> peliculasRecomendadas = new ArrayList<>();
@@ -60,7 +60,7 @@ public class GestorDePeliculas {
 		return peliculasRecomendadas.iterator();
 	}
 	
-	//PROBAR FUNCION, NO TESTING
+	//FALTA QUE LA PELICULA NO ESTE VISTA POR TODO LOS MIEMBROS
 	public Iterator<Pelicula> recomendarPeliculas(User u, Condicion c){
 	
 		ArrayList<Pelicula> peliculasRecomendadas = new ArrayList<>();
@@ -82,8 +82,6 @@ public class GestorDePeliculas {
 		return peliculasRecomendadas.iterator();
 	}
 	
-	
-	//LISTAR PELICULAS VISTAS, NO ME ACUERDO SI LO TESTIE, SACAAR EL SORT, NO VA ACA
 	public Iterator<Pelicula> listarPeliculasVistas(User u){
 		
 		ArrayList<Pelicula> peliculasVistas = new ArrayList<>();
@@ -98,7 +96,6 @@ public class GestorDePeliculas {
 		return peliculasVistas.iterator();
 	}
 	
-	//PROBAR FILTRO, HAY QUE TERMINAR LAS CONDICIONES
 	public Iterator<Pelicula> buscarPeliculas(Condicion c){
 		
 		ArrayList<Pelicula> filtroPeliculas = new ArrayList<>();
@@ -110,6 +107,7 @@ public class GestorDePeliculas {
 		while(itPeliculas.hasNext()) {
 		
 			p = itPeliculas.next();
+			
 			if(c.cumple(p)) {
 				
 				filtroPeliculas.add(p);

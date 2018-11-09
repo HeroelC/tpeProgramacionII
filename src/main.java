@@ -2,6 +2,8 @@ import java.util.Iterator;
 
 import condiciones.Condicion;
 import condiciones.CondicionAnio;
+import condiciones.CondicionTodosGeneros;
+import condiciones.CondicionUnGenero;
 import gestor.GestorDePeliculas;
 import pelicula.Pelicula;
 import usuario.GrupoDeUsuarios;
@@ -28,10 +30,7 @@ public class main {
 		}
 		
 		Usuario bart = new Usuario("Bart", 10);
-		bart.addGeneroPreferido("Musical");
-		bart.addGeneroPreferido("Aventura");
 		bart.addGeneroPreferido("Infantil");
-		bart.addGeneroPreferido("Acción");
 		
 		Usuario maggie = new Usuario("Maggie", 1);
 		maggie.addGeneroPreferido("Musical");
@@ -53,7 +52,6 @@ public class main {
 		GrupoDeUsuarios hombresSimpson = new GrupoDeUsuarios("Simpson");
 		
 		hombresSimpson.addUser(bart);
-		hombresSimpson.addUser(lisa);
 		
 		Pelicula p1 = new Pelicula("Up : una aventura en la altura","Carl Fredricksen es un vendedor de globos de 78 años de edad dispuesto a cumplir su sueño: "
 				+ "atar miles de globos a su casa y volar a Sudamérica. Sin embargo, descubre demasiado tarde a un joven e inesperado polizón."
@@ -158,7 +156,7 @@ public class main {
 		
 		cine.agregarUsuario(hombresSimpson);
 		
-		Condicion c = new CondicionAnio(1700);
+		Condicion c = new CondicionTodosGeneros(hombresSimpson.darGenero());
 		
 		Iterator <Pelicula> itPeliculaHomero = cine.buscarPeliculas(c);
 		

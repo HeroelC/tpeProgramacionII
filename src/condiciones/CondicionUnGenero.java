@@ -1,6 +1,5 @@
 package condiciones;
 
-import java.util.HashSet;
 import java.util.Iterator;
 
 import pelicula.Pelicula;
