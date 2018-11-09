@@ -93,5 +93,22 @@ public class GestorDePeliculas {
 		
 		return peliculasVistas.iterator();
 	}
+	
+	public Iterator<Pelicula> buscarPeliculas(Condicion c){
+		
+		ArrayList<Pelicula> filtroPeliculas = new ArrayList<>();
+		
+		Iterator<Pelicula> itPeliculas = peliculas.iterator();
+		
+		while(itPeliculas.hasNext()) {
+			
+			if(c.cumple(itPeliculas.next())) {
+				
+				
+			}
+		}
+		
+		return filtroPeliculas.iterator();
+	}
 
 }
