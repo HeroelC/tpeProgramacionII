@@ -40,30 +40,21 @@ public class GestorDePeliculas {
 		return p.promedioDeVotos();
 	}
 
-	// VER SI LA PELI ESTA VISTA O NO
 	public Iterator<Pelicula> recomendarPeliculas(User u, Condicion c, Comparadores ordenamiento, int cantidad) {
 
 		ArrayList<Pelicula> peliculasRecomendadas = new ArrayList<>();
-
-		Iterator<Pelicula> itPeliculas = peliculas.iterator();
 		
+		Iterator<Pelicula> itPeliculas = recomendarPeliculas(u, c);
 		
-
-		Pelicula p;
-
+		int i = 0;
+		
 		while (itPeliculas.hasNext()) {
-
-			p = itPeliculas.next();
-
-			if (c.cumple(p) && !recorrerPeliculasVistas(p, u)) {
-
-				peliculasRecomendadas.add(p);
-			}
+				peliculasRecomendadas.add(itPeliculas.next());
 		}
 
 		Collections.sort(peliculasRecomendadas, ordenamiento);
 
-		int i = peliculasRecomendadas.size() - 1;
+		i = peliculasRecomendadas.size() - 1;
 
 		while (i >= cantidad) {
 			i--;
@@ -97,7 +88,7 @@ public class GestorDePeliculas {
 
 			p = itPeliculas.next();
 
-			if (c.cumple(p)) {
+			if (c.cumple(p)  && !recorrerPeliculasVistas(p, u)) {
 
 				peliculasRecomendadas.add(p);
 			}
