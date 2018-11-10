@@ -124,9 +124,9 @@ public class GestorDePeliculas {
 		while (itPeliculas.hasNext()) {
 
 			p = itPeliculas.next();
-
+			System.out.println("Dentro de buscar peliculas" + p.getTitulo());
 			if (c.cumple(p)) {
-
+				
 				filtroPeliculas.add(p);
 			}
 		}

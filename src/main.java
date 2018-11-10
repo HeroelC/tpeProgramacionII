@@ -330,7 +330,7 @@ public class main {
 		generos.add("Comedia");
 		generos.add("Drama");
 		
-		Condicion generosEnPeliculas = new CondicionTodosGeneros(generos.iterator());
+		Condicion generosEnPeliculas = new CondicionUnGenero(generos.iterator());
 		cine.imprimirIterador(cine.buscarPeliculas(generosEnPeliculas), "Peliculas género romántico, comedia, o drama");
 		
 	}
