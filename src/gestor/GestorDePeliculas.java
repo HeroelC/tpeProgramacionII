@@ -40,13 +40,14 @@ public class GestorDePeliculas {
 		return p.promedioDeVotos();
 	}
 
-	// Falta el limite de peliculas, con el atributo cantidad, VER SI LA PELI ESTA
-	// VISTA O NO
+	// VER SI LA PELI ESTA VISTA O NO
 	public Iterator<Pelicula> recomendarPeliculas(User u, Condicion c, Comparadores ordenamiento, int cantidad) {
 
 		ArrayList<Pelicula> peliculasRecomendadas = new ArrayList<>();
 
 		Iterator<Pelicula> itPeliculas = peliculas.iterator();
+		
+		
 
 		Pelicula p;
 
@@ -54,7 +55,7 @@ public class GestorDePeliculas {
 
 			p = itPeliculas.next();
 
-			if (c.cumple(p)) {
+			if (c.cumple(p) && !recorrerPeliculasVistas(p, u)) {
 
 				peliculasRecomendadas.add(p);
 			}
@@ -70,6 +71,17 @@ public class GestorDePeliculas {
 		}
 
 		return peliculasRecomendadas.iterator();
+	}
+
+	public boolean recorrerPeliculasVistas(Pelicula vista, User u) {
+		Iterator<Pelicula> peliculasVistas = listarPeliculasVistas(u);
+		HashSet<Pelicula> peliculasVista = new HashSet<>();
+
+		while (peliculasVistas.hasNext()) {
+			peliculasVista.add(peliculasVistas.next());
+		}
+		
+		return peliculasVista.contains(vista);
 	}
 
 	// FALTA QUE LA PELICULA NO ESTE VISTA POR TODO LOS MIEMBROS
