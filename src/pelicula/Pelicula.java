@@ -105,6 +105,10 @@ public class Pelicula {
 		return actores.contains(actor);
 	}
 	
+	public boolean contieneDirector(String director) {
+		return directores.contains(director);
+	}
+	
 	//Metodos de clase Object
 	
 	public boolean equals(Pelicula p) {
