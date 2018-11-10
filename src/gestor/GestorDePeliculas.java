@@ -133,5 +133,12 @@ public class GestorDePeliculas {
 
 		return filtroPeliculas.iterator();
 	}
+	
+	public void imprimirIterador(Iterator<Pelicula> p, String mensaje) {
+		System.out.println(mensaje);
+		while(p.hasNext()) {
+			System.out.println(p.next().getTitulo());
+		}
+	}
 
 }

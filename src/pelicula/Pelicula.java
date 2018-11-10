@@ -118,4 +118,6 @@ public class Pelicula {
 	public boolean contieneGenero(String g) {
 		return generos.contains(g);
 	}
+	
+	
 }
