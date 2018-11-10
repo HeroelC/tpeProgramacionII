@@ -43,13 +43,14 @@ public class GestorDePeliculas {
 	public Iterator<Pelicula> recomendarPeliculas(User u, Condicion c, Comparadores ordenamiento, int cantidad) {
 
 		ArrayList<Pelicula> peliculasRecomendadas = new ArrayList<>();
-		
+
 		Iterator<Pelicula> itPeliculas = recomendarPeliculas(u, c);
 		
+
 		int i = 0;
-		
+
 		while (itPeliculas.hasNext()) {
-				peliculasRecomendadas.add(itPeliculas.next());
+			peliculasRecomendadas.add(itPeliculas.next());
 		}
 
 		Collections.sort(peliculasRecomendadas, ordenamiento);
@@ -64,15 +65,15 @@ public class GestorDePeliculas {
 		return peliculasRecomendadas.iterator();
 	}
 
-	public boolean recorrerPeliculasVistas(Pelicula vista, User u) {
-		Iterator<Pelicula> peliculasVistas = listarPeliculasVistas(u);
-		HashSet<Pelicula> peliculasVista = new HashSet<>();
 
-		while (peliculasVistas.hasNext()) {
-			peliculasVista.add(peliculasVistas.next());
+	public HashSet<Pelicula> agregarPeliculasAUnHash(Iterator<Pelicula> p, User u) {
+		Iterator<Pelicula> peliculasIterator = listarPeliculasVistas(u);
+		HashSet<Pelicula> peliculasHash = new HashSet<>();
+		while (peliculasIterator.hasNext()) {
+			peliculasHash.add(peliculasIterator.next());
 		}
-		
-		return peliculasVista.contains(vista);
+		return peliculasHash;
+
 	}
 
 	// FALTA QUE LA PELICULA NO ESTE VISTA POR TODO LOS MIEMBROS
@@ -81,6 +82,8 @@ public class GestorDePeliculas {
 		ArrayList<Pelicula> peliculasRecomendadas = new ArrayList<>();
 
 		Iterator<Pelicula> itPeliculas = peliculas.iterator();
+		
+		HashSet<Pelicula> peliculasVistas = agregarPeliculasAUnHash(listarPeliculasVistas(u), u);
 
 		Pelicula p;
 
@@ -88,7 +91,7 @@ public class GestorDePeliculas {
 
 			p = itPeliculas.next();
 
-			if (c.cumple(p)  && !recorrerPeliculasVistas(p, u)) {
+			if (c.cumple(p) && !peliculasVistas.contains(p)) {
 
 				peliculasRecomendadas.add(p);
 			}
