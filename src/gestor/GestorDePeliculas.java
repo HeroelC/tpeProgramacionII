@@ -76,7 +76,6 @@ public class GestorDePeliculas {
 
 	}
 
-	// FALTA QUE LA PELICULA NO ESTE VISTA POR TODO LOS MIEMBROS
 	public Iterator<Pelicula> recomendarPeliculas(User u, Condicion c) {
 
 		ArrayList<Pelicula> peliculasRecomendadas = new ArrayList<>();

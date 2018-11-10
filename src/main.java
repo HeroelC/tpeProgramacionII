@@ -1,15 +1,11 @@
 import java.util.Iterator;
 
-import condiciones.Condicion;
-import condiciones.CondicionAnio;
-import condiciones.CondicionTodosGeneros;
-import condiciones.CondicionUnGenero;
-import gestor.GestorDePeliculas;
-import ordenamiento.Comparadores;
-import ordenamiento.OrdenarPorPromedio;
-import pelicula.Pelicula;
-import usuario.GrupoDeUsuarios;
-import usuario.Usuario;
+
+import condiciones.*;
+import gestor.*;
+import ordenamiento.*;
+import pelicula.*;
+import usuario.*;
 
 public class main {
 
@@ -26,13 +22,11 @@ public class main {
 
 		Iterator<String> listaGeneros = lisa.darGenero();
 
-		while (listaGeneros.hasNext()) {
-
-			System.out.println(listaGeneros.next());
-		}
-
 		Usuario bart = new Usuario("Bart", 10);
 		bart.addGeneroPreferido("Infantil");
+		bart.addGeneroPreferido("Musical");
+		bart.addGeneroPreferido("Aventura");
+		bart.addGeneroPreferido("Accion");
 
 		Usuario maggie = new Usuario("Maggie", 1);
 		maggie.addGeneroPreferido("Musical");
@@ -51,10 +45,25 @@ public class main {
 		homero.addGeneroPreferido("Infantil");
 
 		// GRUPO DE USUARIOS
-		GrupoDeUsuarios hombresSimpson = new GrupoDeUsuarios("Simpson");
+		GrupoDeUsuarios hombresSimpson = new GrupoDeUsuarios("Hombres Simpson");
 
 		hombresSimpson.addUser(bart);
+		hombresSimpson.addUser(homero);
+		
+		GrupoDeUsuarios hermanosSimpson = new GrupoDeUsuarios("Hermanos Simpson");
+		hermanosSimpson.addUser(lisa);
+		hermanosSimpson.addUser(maggie);
+		hermanosSimpson.addUser(bart);
 
+		GrupoDeUsuarios familiaSimpson = new GrupoDeUsuarios("Familia Simpson");
+		familiaSimpson.addUser(lisa);
+		familiaSimpson.addUser(maggie);
+		familiaSimpson.addUser(bart);
+		familiaSimpson.addUser(homero);
+		familiaSimpson.addUser(marge);
+		
+		
+		
 		Pelicula p1 = new Pelicula("Up : una aventura en la altura",
 				"Carl Fredricksen es un vendedor de globos de 78 años de edad dispuesto a cumplir su sueño: "
 						+ "atar miles de globos a su casa y volar a Sudamérica. Sin embargo, descubre demasiado tarde a un joven e inesperado polizón."
@@ -70,7 +79,7 @@ public class main {
 		p1.addGenero("Accion");
 		p1.addGenero("Drama");
 
-		Pelicula p2 = new Pelicula(" Los Simpson",
+		Pelicula p2 = new Pelicula("Los Simpson",
 				" la película La combinación de Homero (Dan Castellaneta), su nuevo puerco mascota, "
 						+ "y un silo lleno de excremento podrían provocar un desastre que amenace no sólo a Springfield, sino al mundo entero. Una muchedumbre enojada llega a la casa de los Simpson,"
 						+ " dividiendo a la familia. Con el destino de la Tierra en equilibrio, Homero se prepara para intentar redimirse con la intención de salvar al mundo y ganarse el perdón de Marge (Julie Kavner).",
@@ -80,7 +89,7 @@ public class main {
 		p2.addActor("Dan Castellaneta");
 		p2.addActor("Harry Shearer");
 		p2.addActor("Julie Kavner");
-		p2.addGenero("Romantico");
+		p2.addGenero("Romántico");
 		p2.addGenero("Musical");
 		p2.addGenero("Infantil");
 		p2.addGenero("Aventura");
@@ -142,13 +151,7 @@ public class main {
 		p6.addGenero("Aventura");
 		p6.addGenero("Accion");
 
-		// homero.darCalificacion(p3, 4);
-		marge.darCalificacion(p3, 2);
-
-		marge.darCalificacion(p4, 5);
-
-		maggie.darCalificacion(p5, 1);
-
+		//Agregar peliculas al cine
 		GestorDePeliculas cine = new GestorDePeliculas();
 		cine.agregarPelicula(p1);
 		cine.agregarPelicula(p2);
@@ -156,23 +159,43 @@ public class main {
 		cine.agregarPelicula(p4);
 		cine.agregarPelicula(p5);
 		cine.agregarPelicula(p6);
-
-		hombresSimpson.darCalificacion(p5, 1);
-		hombresSimpson.darCalificacion(p6, 3);
-		hombresSimpson.darCalificacion(p3, 5);
-
+		
+		//agregar usuarios
+		
+		cine.agregarUsuario(lisa);
+		cine.agregarUsuario(homero);
+		cine.agregarUsuario(bart);
+		cine.agregarUsuario(maggie);
+		cine.agregarUsuario(marge);
 		cine.agregarUsuario(hombresSimpson);
+		cine.agregarUsuario(hermanosSimpson);
+		cine.agregarUsuario(familiaSimpson);
+		
+		// Calificaciones
+		lisa.darCalificacion(p3,5);
+		bart.darCalificacion(p3,2);
+		homero.darCalificacion(p3, 4);
+		marge.darCalificacion(p3, 2);
+		
+		marge.darCalificacion(p4, 5);
+		maggie.darCalificacion(p5, 1);
+		
 
 		Condicion c = new CondicionTodosGeneros(hombresSimpson.darGenero());
 		Comparadores comp = new OrdenarPorPromedio();
 
 		Iterator<Pelicula> itPeliculaHomero = cine.recomendarPeliculas(hombresSimpson, c, comp, 5);
-
-		System.out.println("******PELICULAS RECOMENDADAS********");
-		while (itPeliculaHomero.hasNext()) {
-			System.out.println(itPeliculaHomero.next().getTitulo());
+		
+		public void imprimirIterator(Iterator<Pelicula> p) {
+			System.out.println("******PELICULAS RECOMENDADAS********");
+			while (p.hasNext()) {
+				System.out.println(p.getTitulo());
+			}
 		}
+		
 
+		
+		
 	}
 
 }
