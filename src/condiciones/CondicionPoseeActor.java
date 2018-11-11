@@ -1,5 +1,6 @@
 package condiciones;
 import pelicula.Pelicula;
+import usuario.User;
 public class CondicionPoseeActor implements Condicion {
 	private String actor;
 	
@@ -10,5 +11,11 @@ public class CondicionPoseeActor implements Condicion {
 	public boolean cumple(Pelicula p) {
 		
 		return p.contieneActor(actor);
+	}
+
+	@Override
+	public boolean cumple(Pelicula p, User u) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

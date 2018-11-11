@@ -1,4 +1,3 @@
-import java.util.HashSet;
 import java.util.Iterator;
 
 import condiciones.*;
@@ -9,7 +8,6 @@ import usuario.*;
 
 public class main {
 
-	private static final int Iterator = 0;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -180,91 +178,75 @@ public class main {
 		marge.darCalificacion(p4, 5);
 		maggie.darCalificacion(p5, 1);
 
-		Condicion hs = new CondicionTodosGeneros(hombresSimpson.darGenero());
-		Condicion fs = new CondicionTodosGeneros(familiaSimpson.darGenero());
-		Condicion hns = new CondicionTodosGeneros(hermanosSimpson.darGenero());
-		Condicion b = new CondicionTodosGeneros(bart.darGenero());
-		Condicion l = new CondicionTodosGeneros(lisa.darGenero());
-		Condicion m = new CondicionTodosGeneros(maggie.darGenero());
-		Condicion ma = new CondicionTodosGeneros(marge.darGenero());
-		Condicion h = new CondicionTodosGeneros(homero.darGenero());
-		
-		
-		Condicion hsa = new CondicionUnGenero(hombresSimpson.darGenero());
-		Condicion fsa = new CondicionUnGenero(familiaSimpson.darGenero());
-		Condicion hnsa = new CondicionUnGenero(hermanosSimpson.darGenero());
-		Condicion ba = new CondicionUnGenero(bart.darGenero());
-		Condicion la = new CondicionUnGenero(lisa.darGenero());
-		Condicion mga = new CondicionUnGenero(maggie.darGenero());
-		Condicion maa = new CondicionUnGenero(marge.darGenero());
-		Condicion ha = new CondicionUnGenero(homero.darGenero());
+		Condicion conTodosGeneros = new CondicionTodosGeneros();
+		Condicion conUnGeneros = new CondicionUnGenero();
 		
 		Condicion f = new CondicionAnio(1980);
 		Comparadores comp = new OrdenarPorPromedio();
 		Comparadores compVoto = new OrdenarPorVotos();
 
 		//Imprimir peliculas vistas Marge y Bart
-		marge.imprimirIterador(marge.listarPeliculasVistas(), "Peliculas vistas Marge");
-		bart.imprimirIterador(bart.listarPeliculasVistas(), "Peliculas vistas Bart");
+		//marge.imprimirIterador(marge.listarPeliculasVistas(), "Peliculas vistas Marge");
+		//bart.imprimirIterador(bart.listarPeliculasVistas(), "Peliculas vistas Bart");
 
 		//Imprimir peliculas recomedadas de todos los generos
-		hombresSimpson.imprimirIterador(cine.recomendarPeliculas(hombresSimpson, hs, compVoto, 2),
+		hombresSimpson.imprimirIterador(cine.recomendarPeliculas(hombresSimpson, conTodosGeneros, compVoto, 2),
 				"Recomendaciones TODOS LOS GENEROS hombres Simpson");
 		
-		familiaSimpson.imprimirIterador(cine.recomendarPeliculas(familiaSimpson, fs, compVoto, 2),
+		familiaSimpson.imprimirIterador(cine.recomendarPeliculas(familiaSimpson, conTodosGeneros, compVoto, 2),
 				"Recomendacioes TODOS LOS GENEROS familia Simpson");
 		
-		hermanosSimpson.imprimirIterador(cine.recomendarPeliculas(hermanosSimpson, hns, compVoto, 2),
+		hermanosSimpson.imprimirIterador(cine.recomendarPeliculas(hermanosSimpson, conTodosGeneros, compVoto, 2),
 				"Recomendaciones TODOS LOS GENEROS  hermanos Simpson");
 		
-		bart.imprimirIterador(cine.recomendarPeliculas(bart, b, compVoto, 2),
+		bart.imprimirIterador(cine.recomendarPeliculas(bart, conTodosGeneros, compVoto, 2),
 				"Recomendaciones TODOS LOS GENEROS  Bart");
 		
-		lisa.imprimirIterador(cine.recomendarPeliculas(lisa, l, compVoto, 2),
+		lisa.imprimirIterador(cine.recomendarPeliculas(lisa, conTodosGeneros, compVoto, 2),
 				"Recomendaciones TODOS LOS GENEROS  Lisa");
 		
-		homero.imprimirIterador(cine.recomendarPeliculas(homero, h, compVoto, 2),
+		homero.imprimirIterador(cine.recomendarPeliculas(homero, conTodosGeneros, compVoto, 2),
 				"Recomendaciones TODOS LOS GENEROS Homero");
 		
-		marge.imprimirIterador(cine.recomendarPeliculas(marge, ma, compVoto, 2),
+		marge.imprimirIterador(cine.recomendarPeliculas(marge, conTodosGeneros, compVoto, 2),
 				"Recomendaciones TODOS LOS GENEROS  Marge");
 		
-		maggie.imprimirIterador(cine.recomendarPeliculas(maggie, m, compVoto, 2),
+		maggie.imprimirIterador(cine.recomendarPeliculas(maggie, conTodosGeneros, compVoto, 2),
 				"Recomendaciones TODOS LOS GENEROS  Maggie");
 		
 		//imprimir peliculas recomendadas por un genero
 		
-		hombresSimpson.imprimirIterador(cine.recomendarPeliculas(hombresSimpson, hsa, comp, 5),
+		hombresSimpson.imprimirIterador(cine.recomendarPeliculas(hombresSimpson, conUnGeneros, comp, 5),
 				"Recomendaciones ALGUNOS LOS GENEROS hombres Simpson");
 		
-		familiaSimpson.imprimirIterador(cine.recomendarPeliculas(familiaSimpson, fsa, comp, 5),
+		familiaSimpson.imprimirIterador(cine.recomendarPeliculas(familiaSimpson, conUnGeneros, comp, 5),
 				"Recomendacioes ALGUNOS LOS GENEROS familia Simpson");
 		
-		hermanosSimpson.imprimirIterador(cine.recomendarPeliculas(hermanosSimpson, hnsa, comp, 5),
+		hermanosSimpson.imprimirIterador(cine.recomendarPeliculas(hermanosSimpson, conUnGeneros, comp, 5),
 				"Recomendaciones ALGUNOS LOS GENEROS  hermanos Simpson");
 		
-		bart.imprimirIterador(cine.recomendarPeliculas(bart, ba, comp, 5),
+		bart.imprimirIterador(cine.recomendarPeliculas(bart,conUnGeneros, comp, 5),
 				"Recomendaciones ALGUNOS LOS GENEROS  Bart");
 		
-		lisa.imprimirIterador(cine.recomendarPeliculas(lisa, la, comp, 5),
+		lisa.imprimirIterador(cine.recomendarPeliculas(lisa, conUnGeneros, comp, 5),
 				"Recomendaciones ALGUNOS LOS GENEROS  Lisa");
 		
-		homero.imprimirIterador(cine.recomendarPeliculas(homero, ha, comp, 5),
+		homero.imprimirIterador(cine.recomendarPeliculas(homero, conUnGeneros, comp, 5),
 				"Recomendaciones ALGUNOS LOS GENEROS Homero");
 		
-		marge.imprimirIterador(cine.recomendarPeliculas(marge, maa, comp, 5),
+		marge.imprimirIterador(cine.recomendarPeliculas(marge, conUnGeneros, comp, 5),
 				"Recomendaciones ALGUNOS LOS GENEROS  Marge");
 		
-		maggie.imprimirIterador(cine.recomendarPeliculas(maggie, mga, comp, 5),
+		maggie.imprimirIterador(cine.recomendarPeliculas(maggie, conUnGeneros, comp, 5),
 				"Recomendaciones ALGUNOS LOS GENEROS  Maggie");
 		
-		hombresSimpson.darCalificacion(p1, 4);
+		//hombresSimpson.darCalificacion(p1, 4);
 		
 		//Peliculas vistas por bart
-		bart.imprimirIterador(bart.listarPeliculasVistas(), "Peliculas vistas Bart");
+		//bart.imprimirIterador(bart.listarPeliculasVistas(), "Peliculas vistas Bart");
 
 		//Imprimir peliculas recomedadas de todos los generos
-		hombresSimpson.imprimirIterador(cine.recomendarPeliculas(hombresSimpson, hs, compVoto, 2),
+		/*hombresSimpson.imprimirIterador(cine.recomendarPeliculas(hombresSimpson, hs, compVoto, 2),
 				"Recomendaciones TODOS LOS GENEROS hombres Simpson");
 		
 		familiaSimpson.imprimirIterador(cine.recomendarPeliculas(familiaSimpson, fs, compVoto, 2),
@@ -332,7 +314,7 @@ public class main {
 		
 		Condicion generosEnPeliculas = new CondicionUnGenero(generos.iterator());
 		cine.imprimirIterador(cine.buscarPeliculas(generosEnPeliculas), "Peliculas género romántico, comedia, o drama");
-		
+		*/
 	}
 
 }

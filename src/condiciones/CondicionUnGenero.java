@@ -3,20 +3,20 @@ package condiciones;
 import java.util.Iterator;
 
 import pelicula.Pelicula;
+import usuario.User;
 
 public class CondicionUnGenero implements Condicion {
-	private Iterator<String> generos;
-
-	public CondicionUnGenero(Iterator<String> generos) {
-		this.generos = generos;
-	}
 
 	public boolean cumple(Pelicula p) {
-		
-		Iterator<String> itGeneros = generos;
-		
+		return false;
+	}
+
+	@Override
+	public boolean cumple(Pelicula p, User u) {
+		Iterator<String> itGeneros = u.darGenero();
+
 		while (itGeneros.hasNext()) {
-			if(p.contieneGenero(itGeneros.next())) {
+			if (p.contieneGenero(itGeneros.next())) {
 				return true;
 			}
 		}

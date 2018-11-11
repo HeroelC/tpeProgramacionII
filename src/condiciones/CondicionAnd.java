@@ -1,5 +1,6 @@
 package condiciones;
 import pelicula.Pelicula;
+import usuario.User;
 public class CondicionAnd implements Condicion{
 	
 	private Condicion c1;
@@ -14,6 +15,12 @@ public class CondicionAnd implements Condicion{
 	public boolean cumple(Pelicula p) {
 		
 		return c1.cumple(p) && c2.cumple(p);
+	}
+
+	@Override
+	public boolean cumple(Pelicula p, User u) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 }

@@ -3,26 +3,25 @@ package condiciones;
 import java.util.Iterator;
 
 import pelicula.Pelicula;
+import usuario.User;
 
-public class CondicionTodosGeneros implements Condicion{
+public class CondicionTodosGeneros implements Condicion {
 
-	private Iterator<String> generos;
-	
-	public CondicionTodosGeneros(Iterator<String> generos) {
-		
-		this.generos = generos;
-	}
-	
-	public boolean cumple(Pelicula p) {
-		
-		Iterator<String> itGeneros = generos;
-		
+	public boolean cumple(Pelicula p, User u) {
+
+		Iterator<String> itGeneros = u.darGenero();
+
 		while (itGeneros.hasNext()) {
-			if(!p.contieneGenero(itGeneros.next())) {
+			if (!p.contieneGenero(itGeneros.next())) {
 				return false;
 			}
 		}
 		return true;
 	}
-	
+
+	@Override
+	public boolean cumple(Pelicula p) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

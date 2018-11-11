@@ -50,13 +50,15 @@ public class GestorDePeliculas {
 		int i = 0;
 
 		while (itPeliculas.hasNext()) {
-			peliculasRecomendadas.add(itPeliculas.next());
+			Pelicula p = itPeliculas.next();
+			
+			peliculasRecomendadas.add(p);
 		}
 
 		Collections.sort(peliculasRecomendadas, ordenamiento);
 
 		i = peliculasRecomendadas.size() - 1;
-
+		
 		while (i >= cantidad) {
 			i--;
 			peliculasRecomendadas.remove(i);
@@ -90,8 +92,7 @@ public class GestorDePeliculas {
 
 			p = itPeliculas.next();
 
-			if (c.cumple(p) && !peliculasVistas.contains(p)) {
-
+			if (c.cumple(p,u) && !peliculasVistas.contains(p)) {
 				peliculasRecomendadas.add(p);
 			}
 		}
@@ -124,7 +125,6 @@ public class GestorDePeliculas {
 		while (itPeliculas.hasNext()) {
 
 			p = itPeliculas.next();
-			System.out.println("Dentro de buscar peliculas" + p.getTitulo());
 			if (c.cumple(p)) {
 				
 				filtroPeliculas.add(p);
