@@ -1,19 +1,12 @@
 package condicionUsuario;
 
 import java.util.Iterator;
-
-import condicionesBusqueda.Condicion;
 import pelicula.Pelicula;
 import usuario.User;
 
 public class CondicionUnGenero implements Condicion {
 
-	public boolean cumple(Pelicula p) {
-		return false;
-	}
-
-	@Override
-	public boolean cumple(Pelicula p, User u) {
+	public boolean seCumple(User u, Pelicula p) {
 		Iterator<String> itGeneros = u.darGenero();
 
 		while (itGeneros.hasNext()) {

@@ -2,13 +2,12 @@ package condicionUsuario;
 
 import java.util.Iterator;
 
-import condicionesBusqueda.Condicion;
 import pelicula.Pelicula;
 import usuario.User;
 
 public class CondicionTodosGeneros implements Condicion {
 
-	public boolean cumple(Pelicula p, User u) {
+	public boolean seCumple(User u, Pelicula p) {
 
 		Iterator<String> itGeneros = u.darGenero();
 
@@ -18,11 +17,5 @@ public class CondicionTodosGeneros implements Condicion {
 			}
 		}
 		return true;
-	}
-
-	@Override
-	public boolean cumple(Pelicula p) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 }
