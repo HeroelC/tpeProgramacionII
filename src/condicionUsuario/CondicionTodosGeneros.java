@@ -1,7 +1,8 @@
-package condiciones;
+package condicionUsuario;
 
 import java.util.Iterator;
 
+import condicionesBusqueda.Condicion;
 import pelicula.Pelicula;
 import usuario.User;
 

@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 
-import condiciones.*;
+import condicionesBusqueda.*;
 import ordenamiento.*;
 import pelicula.Pelicula;
 import usuario.User;

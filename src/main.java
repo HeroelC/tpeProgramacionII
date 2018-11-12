@@ -1,6 +1,8 @@
 import java.util.Iterator;
 
-import condiciones.*;
+import condicionUsuario.CondicionTodosGeneros;
+import condicionUsuario.CondicionUnGenero;
+import condicionesBusqueda.*;
 import gestor.*;
 import ordenamiento.*;
 import pelicula.*;

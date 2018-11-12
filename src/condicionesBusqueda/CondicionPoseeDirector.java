@@ -1,6 +1,6 @@
-package condiciones;
+package condicionesBusqueda;
 import pelicula.Pelicula;
-import usuario.User;
+
 public class CondicionPoseeDirector implements Condicion {
 	private String director;
 	
@@ -13,9 +13,4 @@ public class CondicionPoseeDirector implements Condicion {
 		return p.contieneDirector(director);
 	}
 
-	@Override
-	public boolean cumple(Pelicula p, User u) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 }
