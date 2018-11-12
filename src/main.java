@@ -1,5 +1,6 @@
 import java.util.Iterator;
 
+import condicionUsuario.Condicion;
 import condicionUsuario.CondicionTodosGeneros;
 import condicionUsuario.CondicionUnGenero;
 import condicionesBusqueda.*;
@@ -21,8 +22,6 @@ public class main {
 		lisa.addGeneroPreferido("Musical");
 		lisa.addGeneroPreferido("Infantil");
 		lisa.addGeneroPreferido("Aventura");
-
-		Iterator<String> listaGeneros = lisa.darGenero();
 
 		Usuario bart = new Usuario("Bart", 10);
 		bart.addGeneroPreferido("Infantil");
@@ -75,6 +74,7 @@ public class main {
 		p1.addActor("Ed Asner");
 		p1.addActor("Bob Peterson");
 		p1.addActor("Jordan Nagai");
+		
 		p1.addGenero("Infantil");
 		p1.addGenero("Accion");
 		p1.addGenero("Drama");
@@ -89,6 +89,7 @@ public class main {
 		p2.addActor("Dan Castellaneta");
 		p2.addActor("Harry Shearer");
 		p2.addActor("Julie Kavner");
+		
 		p2.addGenero("Romántico");
 		p2.addGenero("Musical");
 		p2.addGenero("Infantil");
@@ -103,6 +104,7 @@ public class main {
 		p3.addActor("Brad Bird");
 		p3.addActor("Craig T. Nelson");
 		p3.addActor("Holly Hunter");
+		
 		p3.addGenero("Musical");
 		p3.addGenero("Infantil");
 		p3.addGenero("Aventura");
@@ -116,6 +118,7 @@ public class main {
 		p4.addActor("Brad Bird");
 		p4.addActor("Craig T. Nelson");
 		p4.addActor("Holly Hunter");
+		
 		p4.addGenero("Musical");
 		p4.addGenero("Infantil");
 		p4.addGenero("Aventura");
@@ -130,6 +133,7 @@ public class main {
 		p5.addActor("Tom Hanks");
 		p5.addActor("Don Rickles");
 		p5.addActor("Wallace Shawn");
+		
 		p5.addGenero("Infantil");
 		p5.addGenero("Aventura");
 		p5.addGenero("Accion");
@@ -146,6 +150,7 @@ public class main {
 		p6.addActor("John Goodman");
 		p6.addActor("Billy Crystal");
 		p6.addActor("John Ratzenberger");
+		
 		p6.addGenero("Infantil");
 		p6.addGenero("Musical");
 		p6.addGenero("Aventura");
@@ -180,8 +185,8 @@ public class main {
 		marge.darCalificacion(p4, 5);
 		maggie.darCalificacion(p5, 1);
 
-		CondicionBusqueda conTodosGeneros = new CondicionTodosGeneros();
-		CondicionBusqueda conUnGeneros = new CondicionUnGenero();
+		Condicion conTodosGeneros = new CondicionTodosGeneros();
+		Condicion conUnGeneros = new CondicionUnGenero();
 		
 		CondicionBusqueda f = new CondicionAnio(1980);
 		Comparadores comp = new OrdenarPorPromedio();
@@ -192,7 +197,7 @@ public class main {
 		//bart.imprimirIterador(bart.listarPeliculasVistas(), "Peliculas vistas Bart");
 
 		//Imprimir peliculas recomedadas de todos los generos
-		hombresSimpson.imprimirIterador(cine.recomendarPeliculas(hombresSimpson, conTodosGeneros, compVoto, 2),
+		hombresSimpson.imprimirIterador(cine.recomendarPeliculas(hombresSimpson, conUnGeneros, compVoto, 6),
 				"Recomendaciones TODOS LOS GENEROS hombres Simpson");
 		
 		familiaSimpson.imprimirIterador(cine.recomendarPeliculas(familiaSimpson, conTodosGeneros, compVoto, 2),
