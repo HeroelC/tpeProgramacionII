@@ -1,7 +1,7 @@
 package condicionesBusqueda;
 import pelicula.Pelicula;
 
-public class CondicionAnio implements Condicion{
+public class CondicionAnio implements CondicionBusqueda{
 	private int anio;
 	
 	public CondicionAnio(int anio) {

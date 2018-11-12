@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 
+import condicionUsuario.Condicion;
 import condicionesBusqueda.*;
 import ordenamiento.*;
 import pelicula.Pelicula;
@@ -46,7 +47,6 @@ public class GestorDePeliculas {
 
 		Iterator<Pelicula> itPeliculas = recomendarPeliculas(u, c);
 		
-
 		int i = 0;
 
 		while (itPeliculas.hasNext()) {
@@ -86,13 +86,11 @@ public class GestorDePeliculas {
 		
 		HashSet<Pelicula> peliculasVistas = agregarPeliculasAUnHash(listarPeliculasVistas(u), u);
 
-		Pelicula p;
-
 		while (itPeliculas.hasNext()) {
 
-			p = itPeliculas.next();
+			Pelicula p = itPeliculas.next();
 
-			if (c.cumple(p,u) && !peliculasVistas.contains(p)) {
+			if (c.seCumple(u, p) && !peliculasVistas.contains(p)) {
 				peliculasRecomendadas.add(p);
 			}
 		}
@@ -114,7 +112,7 @@ public class GestorDePeliculas {
 		return peliculasVistas.iterator();
 	}
 
-	public Iterator<Pelicula> buscarPeliculas(Condicion c) {
+	public Iterator<Pelicula> buscarPeliculas(CondicionBusqueda c) {
 
 		ArrayList<Pelicula> filtroPeliculas = new ArrayList<>();
 

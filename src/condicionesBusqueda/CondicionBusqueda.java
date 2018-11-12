@@ -2,7 +2,7 @@ package condicionesBusqueda;
 
 import pelicula.Pelicula;
 
-public interface Condicion {
+public interface CondicionBusqueda {
 	
 public abstract boolean cumple(Pelicula p);
 

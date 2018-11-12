@@ -180,10 +180,10 @@ public class main {
 		marge.darCalificacion(p4, 5);
 		maggie.darCalificacion(p5, 1);
 
-		Condicion conTodosGeneros = new CondicionTodosGeneros();
-		Condicion conUnGeneros = new CondicionUnGenero();
+		CondicionBusqueda conTodosGeneros = new CondicionTodosGeneros();
+		CondicionBusqueda conUnGeneros = new CondicionUnGenero();
 		
-		Condicion f = new CondicionAnio(1980);
+		CondicionBusqueda f = new CondicionAnio(1980);
 		Comparadores comp = new OrdenarPorPromedio();
 		Comparadores compVoto = new OrdenarPorVotos();
 

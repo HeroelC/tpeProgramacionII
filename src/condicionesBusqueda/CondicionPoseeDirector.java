@@ -1,7 +1,7 @@
 package condicionesBusqueda;
 import pelicula.Pelicula;
 
-public class CondicionPoseeDirector implements Condicion {
+public class CondicionPoseeDirector implements CondicionBusqueda {
 	private String director;
 	
 	public CondicionPoseeDirector(String director) {

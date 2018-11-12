@@ -1,7 +1,7 @@
 package condicionesBusqueda;
 import pelicula.Pelicula;
 
-public class CondicionPoseeActor implements Condicion {
+public class CondicionPoseeActor implements CondicionBusqueda {
 	private String actor;
 	
 	public CondicionPoseeActor(String actor) {
