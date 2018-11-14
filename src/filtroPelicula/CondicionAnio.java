@@ -1,4 +1,4 @@
-package condicionesBusqueda;
+package filtroPelicula;
 import pelicula.Pelicula;
 
 public class CondicionAnio implements CondicionBusqueda{

@@ -6,8 +6,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 import condicionUsuario.Condicion;
-import condicionesBusqueda.*;
-import ordenamiento.*;
+import filtroPelicula.*;
+import ordenarPelicula.*;
 import pelicula.Pelicula;
 import usuario.User;
 
@@ -16,11 +16,31 @@ public class GestorDePeliculas {
 	// ATRIBUTOS
 	private HashSet<Pelicula> peliculas;
 	private HashSet<User> usuarios;
+	private Condicion c;
 
 	// CONSTRUCTOR
 	public GestorDePeliculas() {
 		peliculas = new HashSet<>();
 		usuarios = new HashSet<>();
+	}
+	
+	//CONSTRUCTOR PARA INICIARLIZAR CON UNA CONDICION DE USUARIO (UN GENERO / TODOS)
+	public GestorDePeliculas(Condicion c) {
+		
+		this.c = c;
+	}
+	
+	//SETTERS AND GETTERS
+
+	//CAMBIAR CONDICION (UN GENERO / TODOS LOS GENEROS)
+	public void setCondicion(Condicion c) {
+		
+		this.c = c;
+	}
+	
+	public Condicion getCondicion() {
+		
+		return c;
 	}
 
 	// METODOS
@@ -41,7 +61,7 @@ public class GestorDePeliculas {
 		return p.promedioDeVotos();
 	}
 
-	public Iterator<Pelicula> recomendarPeliculas(User u, Condicion c, Comparadores ordenamiento, int cantidad) {
+	public Iterator<Pelicula> recomendarPeliculas(User u, Condicion c, OrdenarPelicula ordenamiento, int cantidad) {
 
 		ArrayList<Pelicula> peliculasRecomendadas = new ArrayList<>();
 
@@ -76,6 +96,27 @@ public class GestorDePeliculas {
 		}
 		return peliculasHash;
 
+	}
+	
+	//RECOMENDAR PELICULA SIN PASAR FILTRO, USA EL QUE SE DEFINIO EN EL CONSTRUCTOR
+	public Iterator<Pelicula> recomendarPeliculas(User u){
+		
+		ArrayList<Pelicula> peliculasRecomendadas = new ArrayList<>();
+
+		Iterator<Pelicula> itPeliculas = peliculas.iterator();
+		
+		HashSet<Pelicula> peliculasVistas = agregarPeliculasAUnHash(listarPeliculasVistas(u), u);
+
+		while (itPeliculas.hasNext()) {
+
+			Pelicula p = itPeliculas.next();
+
+			if (c.seCumple(u, p) && !peliculasVistas.contains(p)) {
+				peliculasRecomendadas.add(p);
+			}
+		}
+
+		return peliculasRecomendadas.iterator();
 	}
 
 	public Iterator<Pelicula> recomendarPeliculas(User u, Condicion c) {

@@ -3,9 +3,9 @@ import java.util.Iterator;
 import condicionUsuario.Condicion;
 import condicionUsuario.CondicionTodosGeneros;
 import condicionUsuario.CondicionUnGenero;
-import condicionesBusqueda.*;
+import filtroPelicula.*;
 import gestor.*;
-import ordenamiento.*;
+import ordenarPelicula.*;
 import pelicula.*;
 import usuario.*;
 
@@ -189,8 +189,8 @@ public class main {
 		Condicion conUnGeneros = new CondicionUnGenero();
 		
 		CondicionBusqueda f = new CondicionAnio(1980);
-		Comparadores comp = new OrdenarPorPromedio();
-		Comparadores compVoto = new OrdenarPorVotos();
+		OrdenarPelicula comp = new OrdenarPorPromedio();
+		OrdenarPelicula compVoto = new OrdenarPorVotos();
 
 		//Imprimir peliculas vistas Marge y Bart
 		//marge.imprimirIterador(marge.listarPeliculasVistas(), "Peliculas vistas Marge");
