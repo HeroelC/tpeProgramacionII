@@ -44,7 +44,6 @@ public abstract class User {
 	public abstract void addPeliculaVista(Pelicula p);
 	
 	//METODOS
-	
 		
 	//METODOS PROPIOS DE LOS OBJETOS EQUALS Y TOSTRING
 	public boolean equals(User u) {
@@ -54,7 +53,7 @@ public abstract class User {
 	public void imprimirIterador(Iterator<Pelicula> p, String mensaje) {
 		System.out.println(mensaje);
 		while(p.hasNext()) {
-			System.out.println(p.next().getTitulo());
+			System.out.println(p.next().toString());
 		}
 	}
 	

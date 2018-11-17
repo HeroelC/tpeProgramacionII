@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 import condicionUsuario.Condicion;
+import condicionUsuario.CondicionUnGenero;
 import filtroPelicula.*;
 import ordenarPelicula.*;
 import pelicula.Pelicula;
@@ -20,13 +21,17 @@ public class GestorDePeliculas {
 
 	// CONSTRUCTOR
 	public GestorDePeliculas() {
+		
 		peliculas = new HashSet<>();
 		usuarios = new HashSet<>();
+		this.c = new CondicionUnGenero();
 	}
 	
 	//CONSTRUCTOR PARA INICIARLIZAR CON UNA CONDICION DE USUARIO (UN GENERO / TODOS)
 	public GestorDePeliculas(Condicion c) {
 		
+		peliculas = new HashSet<>();
+		usuarios = new HashSet<>();
 		this.c = c;
 	}
 	
@@ -159,11 +164,9 @@ public class GestorDePeliculas {
 
 		Iterator<Pelicula> itPeliculas = peliculas.iterator();
 
-		Pelicula p;
-
 		while (itPeliculas.hasNext()) {
 
-			p = itPeliculas.next();
+			Pelicula p = itPeliculas.next();
 			if (c.cumple(p)) {
 				
 				filtroPeliculas.add(p);
@@ -174,9 +177,11 @@ public class GestorDePeliculas {
 	}
 	
 	public void imprimirIterador(Iterator<Pelicula> p, String mensaje) {
-		System.out.println(mensaje);
+	
 		while(p.hasNext()) {
-			System.out.println(p.next().getTitulo());
+			Pelicula pelicula = p.next();
+			
+			System.out.println(pelicula.toString());
 		}
 	}
 

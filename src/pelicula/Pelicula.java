@@ -109,15 +109,23 @@ public class Pelicula {
 		return directores.contains(director);
 	}
 	
+	
+	public boolean contieneGenero(String g) {
+		return generos.contains(g);
+	}
+	
 	//Metodos de clase Object
 	
 	public boolean equals(Pelicula p) {
 		return (this.getTitulo().equals(p.getTitulo()));
 	}
 	
-	public boolean contieneGenero(String g) {
-		return generos.contains(g);
+	public String toString() {
+		
+		return "*********************** \n" + "Titulo: " + getTitulo() + " Año de estreno: " +
+		getAnioEstreno() + " Promedio de votos: " + promedioDeVotos() + "\n*********************** \n";
 	}
+
 	
 	
 }

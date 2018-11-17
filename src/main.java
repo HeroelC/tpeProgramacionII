@@ -1,5 +1,3 @@
-import java.util.Iterator;
-
 import condicionUsuario.Condicion;
 import condicionUsuario.CondicionTodosGeneros;
 import condicionUsuario.CondicionUnGenero;
