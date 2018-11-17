@@ -50,11 +50,4 @@ public abstract class User {
 		return (this.getNombre().equals(u.getNombre()));
 	}
 	
-	public void imprimirIterador(Iterator<Pelicula> p, String mensaje) {
-		System.out.println(mensaje);
-		while(p.hasNext()) {
-			System.out.println(p.next().toString());
-		}
-	}
-	
 }

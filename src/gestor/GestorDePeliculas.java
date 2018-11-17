@@ -24,6 +24,7 @@ public class GestorDePeliculas {
 		
 		peliculas = new HashSet<>();
 		usuarios = new HashSet<>();
+		//CONDICION POR DEFECTO
 		this.c = new CondicionUnGenero();
 	}
 	
@@ -46,6 +47,22 @@ public class GestorDePeliculas {
 	public Condicion getCondicion() {
 		
 		return c;
+	}
+	
+	public ArrayList<User> getUsuarios(){
+		
+		ArrayList<User> aux = new ArrayList<>();
+		
+		Iterator<User> itUser = this.usuarios.iterator();
+		
+		while(itUser.hasNext()) {
+			
+			User u = itUser.next();
+			
+			aux.add(u);
+		}
+		
+		return aux;
 	}
 
 	// METODOS
@@ -176,13 +193,4 @@ public class GestorDePeliculas {
 		return filtroPeliculas.iterator();
 	}
 	
-	public void imprimirIterador(Iterator<Pelicula> p, String mensaje) {
-	
-		while(p.hasNext()) {
-			Pelicula pelicula = p.next();
-			
-			System.out.println(pelicula.toString());
-		}
-	}
-
 }
