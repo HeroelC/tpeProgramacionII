@@ -64,6 +64,20 @@ public class GestorDePeliculas {
 		
 		return aux;
 	}
+	
+	public ArrayList<Pelicula> getPeliculas(){
+		
+		ArrayList<Pelicula> aux = new ArrayList<>();
+		
+		Iterator<Pelicula> itPeliculas = this.peliculas.iterator();
+		
+		while(itPeliculas.hasNext()) {
+			
+			aux.add(itPeliculas.next());
+		}
+		
+		return aux;
+	}
 
 	// METODOS
 	public void agregarPelicula(Pelicula p) {
@@ -83,7 +97,7 @@ public class GestorDePeliculas {
 		return p.promedioDeVotos();
 	}
 
-	public Iterator<Pelicula> recomendarPeliculas(User u, Condicion c, OrdenarPelicula ordenamiento, int cantidad) {
+	public Iterator<Pelicula> recomendarPeliculas(User u, OrdenarPelicula ordenamiento, int cantidad) {
 
 		ArrayList<Pelicula> peliculasRecomendadas = new ArrayList<>();
 
@@ -97,7 +111,7 @@ public class GestorDePeliculas {
 			peliculasRecomendadas.add(p);
 		}
 
-		Collections.sort(peliculasRecomendadas, ordenamiento);
+		Collections.sort(peliculasRecomendadas, ordenamiento.reversed());
 
 		i = peliculasRecomendadas.size() - 1;
 		
@@ -143,6 +157,8 @@ public class GestorDePeliculas {
 
 	public Iterator<Pelicula> recomendarPeliculas(User u, Condicion c) {
 
+		setCondicion(c);
+		
 		ArrayList<Pelicula> peliculasRecomendadas = new ArrayList<>();
 
 		Iterator<Pelicula> itPeliculas = peliculas.iterator();

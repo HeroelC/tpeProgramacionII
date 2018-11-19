@@ -97,13 +97,20 @@ public class Pelicula {
 			Calificacion c = it.next();
 			promedio += c.getCalificacion();
 		}
+	
+		double total = promedio/this.cantidadCalificaciones();
 		
-	return (promedio/this.cantidadCalificaciones());	
+		if(this.cantidadCalificaciones() == 0) {
+			return 0;
+		}else {
+			return total;
+		}
 	}
 	
 	public boolean contieneActor(String actor) {
 		return actores.contains(actor);
 	}
+	
 	
 	public boolean contieneDirector(String director) {
 		return directores.contains(director);
@@ -123,7 +130,7 @@ public class Pelicula {
 	public String toString() {
 		
 		return "*********************** \n" + "Titulo: " + getTitulo() + " Año de estreno: " +
-		getAnioEstreno() + " Promedio de votos: " + promedioDeVotos() + "\n*********************** \n";
+		getAnioEstreno() + " Promedio de votos: " + promedioDeVotos() + " Cantidad de votos: " + cantidadCalificaciones() +"\n*********************** \n";
 	}
 
 	

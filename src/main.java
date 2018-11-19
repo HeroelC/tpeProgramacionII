@@ -12,7 +12,6 @@ import usuario.*;
 
 public class main {
 
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
@@ -189,7 +188,21 @@ public class main {
 		Condicion conTodosGeneros = new CondicionTodosGeneros();
 		Condicion conUnGeneros = new CondicionUnGenero();
 		
-		CondicionBusqueda f = new CondicionAnio(1980);
+		CondicionBusqueda conActorPD = new CondicionPoseeActor("Pete Docter");
+		CondicionBusqueda conDirectorPD = new CondicionPoseeDirector("Pete Docter");
+		CondicionBusqueda andActorDirector = new CondicionAnd(conActorPD,conDirectorPD); 
+		
+		CondicionBusqueda generoRomantico = new CondicionGenero("Romántico");
+		CondicionBusqueda generoComedia = new CondicionGenero("Comedia");
+		CondicionBusqueda generoDrama = new CondicionGenero("Drama");
+		
+		CondicionBusqueda andRC = new CondicionOR(generoRomantico,generoComedia);
+		CondicionBusqueda andAD = new CondicionOR(andRC,generoDrama);
+		
+		CondicionBusqueda conActorTH = new CondicionPoseeActor("Tom Hanks");
+		
+		CondicionBusqueda busquedaPorAnio = new CondicionAnio(2000);
+		
 		OrdenarPelicula comp = new OrdenarPorPromedio();
 		OrdenarPelicula compVoto = new OrdenarPorVotos();
 		
@@ -197,6 +210,8 @@ public class main {
 		cine.setCondicion(conTodosGeneros);
 		
 		ArrayList<User> usuarios = new ArrayList<>();
+		
+		// Una vez probado todo agregas esta linea para volver a imprimir todo hermanosSimpson.darCalificacion(p1, 4);
 		
 		//LISTAR PELICULAS VISTAS POR MARGE Y BART
 		
@@ -210,24 +225,53 @@ public class main {
 		//Recomendar peliculas con todos los generos
 		for(int i=0; i < usuarios.size(); i++) {
 			
-			imprimirIterador(cine.recomendarPeliculas(usuarios.get(i)), usuarios.get(i), "Recomendar peliculas para");
+			imprimirIterador(cine.recomendarPeliculas(usuarios.get(i), compVoto, 2), usuarios.get(i), "Recomendar peliculas para ");
 		}
 		
+		cine.setCondicion(conUnGeneros);
 		
-
+		for(int i=0; i < usuarios.size(); i++) {
+			
+			imprimirIterador(cine.recomendarPeliculas(usuarios.get(i), comp, 5), usuarios.get(i), "Recomendar peliula con un genero ");
+		}
+		
+		Iterator<Pelicula> itPeliculas = cine.buscarPeliculas(busquedaPorAnio);
+		Iterator<Pelicula> itPeliculasDA = cine.buscarPeliculas(andActorDirector);
+		Iterator<Pelicula> itPeliculasA = cine.buscarPeliculas(conActorTH);
+		Iterator<Pelicula> itPeliculasPorGenero = cine.buscarPeliculas(andAD);
+		
+		
+		imprimirIterador(itPeliculas, "Peliculas estrenadas a partir del 2000");
+		imprimirIterador(itPeliculasDA, "Todas las películas en las que Pete Docter haya actuado y sido director al\r\n" + 
+				"mismo tiempo");
+		imprimirIterador(itPeliculasA, "Todas las películas en las que haya actuado Tom Hanks");
+		imprimirIterador(itPeliculasPorGenero, "Todas las películas con género romántico, comedia, o drama");
+		
 	}
-	
+
 	public static void imprimirIterador(Iterator<Pelicula> p, User u, String mensaje) {
 
-		
 		System.out.println("*********** " + mensaje + u.getNombre() + " ***********");
-		
-		while(p.hasNext()) {
-			
+
+		while (p.hasNext()) {
+
 			Pelicula pelicula = p.next();
-				
+
 			System.out.println(pelicula.toString());
 		}
 	}
+
+	public static void imprimirIterador(Iterator<Pelicula> p, String mensaje) {
+
+		System.out.println("*********** " + mensaje + " ***********");
+
+		while (p.hasNext()) {
+
+			Pelicula pelicula = p.next();
+
+			System.out.println(pelicula.toString());
+		}
+	}
+	
 
 }
