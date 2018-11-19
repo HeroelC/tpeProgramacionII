@@ -193,25 +193,34 @@ public class main {
 		OrdenarPelicula comp = new OrdenarPorPromedio();
 		OrdenarPelicula compVoto = new OrdenarPorVotos();
 		
+		//SETEAMOS TODOS LOS  GENEROS
+		cine.setCondicion(conTodosGeneros);
+		
 		ArrayList<User> usuarios = new ArrayList<>();
+		
+		//LISTAR PELICULAS VISTAS POR MARGE Y BART
+		
+		imprimirIterador(bart.listarPeliculasVistas(), bart, "Peliculas vistas por ");
+		
+		imprimirIterador(marge.listarPeliculasVistas(), marge, "Peliculas vistas por ");
 		
 		//Pedimos todo los usuarios del cine
 		usuarios = cine.getUsuarios();
 		
-		//Recomendar peliculas con al menos un genero
+		//Recomendar peliculas con todos los generos
 		for(int i=0; i < usuarios.size(); i++) {
 			
-			imprimirIterador(cine.recomendarPeliculas(usuarios.get(i)), usuarios.get(i));
-			
+			imprimirIterador(cine.recomendarPeliculas(usuarios.get(i)), usuarios.get(i), "Recomendar peliculas para");
 		}
 		
 		
 
 	}
 	
-	public static void imprimirIterador(Iterator<Pelicula> p, User u) {
+	public static void imprimirIterador(Iterator<Pelicula> p, User u, String mensaje) {
+
 		
-		System.out.println("***********RECOMENDAR PELICULA PARA " + u.getNombre() + "**********");
+		System.out.println("*********** " + mensaje + u.getNombre() + " ***********");
 		
 		while(p.hasNext()) {
 			
